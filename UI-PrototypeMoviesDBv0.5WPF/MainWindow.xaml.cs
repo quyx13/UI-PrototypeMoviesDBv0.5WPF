@@ -13,5 +13,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Application.Current.Shutdown();
         }
+
+        private void menuInfo_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO:Informations-Dialog
+        }
     }
 }

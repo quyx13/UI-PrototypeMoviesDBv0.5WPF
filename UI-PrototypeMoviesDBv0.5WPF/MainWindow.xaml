@@ -24,7 +24,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_About">
-                <MenuItem x:Name="menuInfo" Header="_Info">
+                <MenuItem x:Name="menuInfo" Header="_Info" Click="menuInfo_Click">
                     <MenuItem.Icon>
                         <Image Source="/res/info24.png"/>
                     </MenuItem.Icon>
