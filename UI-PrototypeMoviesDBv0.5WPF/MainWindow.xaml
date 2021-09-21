@@ -17,7 +17,11 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_Open"/>
                 <Separator/>
-                <MenuItem x:Name="menuExit" Header="_Exit" Click="menuExit_Click"/>
+                <MenuItem x:Name="menuExit" Header="_Exit" Click="menuExit_Click">
+                    <MenuItem.Icon>
+                        <Image Source="res/exit24.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="_About">
                 <MenuItem x:Name="menuInfo" Header="_Info"/>

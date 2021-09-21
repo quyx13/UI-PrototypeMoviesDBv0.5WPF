@@ -11,6 +11,7 @@
     <None Remove="clapperboard.png" />
     <None Remove="play32.png" />
     <None Remove="res\clapperboard.png" />
+    <None Remove="res\exit24.png" />
     <None Remove="res\play24.png" />
     <None Remove="res\settings24.png" />
     <None Remove="res\stop24.png" />
@@ -18,6 +19,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="res\clapperboard.png" />
+    <Resource Include="res\exit24.png" />
     <Resource Include="res\play24.png" />
     <Resource Include="res\settings24.png" />
   </ItemGroup>
