@@ -9,6 +9,16 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
         private void menuExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -27,6 +37,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             // TODO:Settings-Fenster
-        }
+        }        
     }
 }
