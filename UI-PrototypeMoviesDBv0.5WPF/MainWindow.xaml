@@ -58,7 +58,7 @@
             <GroupBox.Header>
                 <Label>Output</Label>
             </GroupBox.Header>
-            <TextBox VerticalScrollBarVisibility="Auto" IsReadOnly="True" IsUndoEnabled="False"/>
+            <TextBox VerticalScrollBarVisibility="Auto" IsReadOnly="True" IsUndoEnabled="False" HorizontalScrollBarVisibility="Auto"/>
         </GroupBox>
         <StatusBar Grid.Row="3">
             <StatusBar.ItemsPanel>
