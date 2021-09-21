@@ -68,7 +68,7 @@
                             <ColumnDefinition Width="223"/>
                             <ColumnDefinition Width="121"/>
                             <ColumnDefinition Width="159"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>
