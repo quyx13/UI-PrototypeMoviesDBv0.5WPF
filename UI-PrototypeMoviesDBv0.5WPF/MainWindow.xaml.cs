@@ -8,5 +8,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             InitializeComponent();
         }
+
+        private void menuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

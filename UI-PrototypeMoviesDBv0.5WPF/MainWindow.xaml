@@ -17,10 +17,10 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_Open"/>
                 <Separator/>
-                <MenuItem Header="_Exit"/>
+                <MenuItem x:Name="menuExit" Header="_Exit" Click="menuExit_Click"/>
             </MenuItem>
             <MenuItem Header="_About">
-                <MenuItem Header="_Info"/>
+                <MenuItem x:Name="menuInfo" Header="_Info"/>
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1">
@@ -30,7 +30,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Margin="3,3,0,0">
+            <Button x:Name="btnStart" Grid.Column="0" Margin="3,3,0,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -41,7 +41,7 @@
                     <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,3,0" FontWeight="Bold">Start</TextBlock>
                 </Grid>
             </Button>
-            <Button Grid.Column="1" Margin="3,3,0,0">
+            <Button x:Name="btnSettings" Grid.Column="1" Margin="3,3,0,0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
