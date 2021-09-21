@@ -18,5 +18,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             // TODO:Informations-Dialog
         }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO
+        }
+
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO:Settings-Fenster
+        }
     }
 }
