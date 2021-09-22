@@ -183,7 +183,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public static void UpdateStatusTextTime(Dispatcher dispatcher,
             Dictionary<string, Object> controls, int i, int number, TimeSpan timeSpan)
         {
-            var statusTextTime = (TextBlock)controls["statusTextTime"];
             var text = "";
 
             if (i > 0)
@@ -198,10 +197,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     $"{timeSpan.Seconds:D2}s (remaining: XXh:XXm:XXs)";
             }
 
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusTextTime.Text = text;
-            }), DispatcherPriority.Background);
+            UpdateStatusTextTime(dispatcher, controls, text);
         }
 
         public static void UpdateStatusTextTask(Dispatcher dispatcher,
