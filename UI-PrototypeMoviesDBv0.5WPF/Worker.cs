@@ -12,6 +12,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Trace.WriteLine("started...");
 
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/stop24.png");
+            ViewUpdates.UpdateBtnStartTxt(dispatcher, controls, "Stop");
             ViewUpdates.UpdateBtnSettings(dispatcher, controls, false);
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
             ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
@@ -31,6 +33,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 i++;
             }
 
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
+            ViewUpdates.UpdateBtnStartTxt(dispatcher, controls, "Start");
             ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
 
