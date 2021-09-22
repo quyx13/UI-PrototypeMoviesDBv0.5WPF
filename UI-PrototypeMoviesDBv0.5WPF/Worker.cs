@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
@@ -20,25 +19,18 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             var btnSettings = (Button)controls["btnSettings"];
             var btnSettingsImg = (Image)controls["btnSettingsImg"];
             var btnSettingsTxt = (TextBlock)controls["btnSettingsTxt"];
-            var comboBox = (ComboBox)controls["comboBox"];
-            var textBox = (TextBox)controls["textBox"];
-            var statusTextTime = (TextBlock)controls["statusTextTime"];
-            var statusTextTask = (TextBlock)controls["statusTextTask"];
-            var statusProgressBar = (ProgressBar)controls["statusProgressBar"];
-            var statusTextPercentage = (TextBlock)controls["statusTextPercentage"];
-            var statusTextInfo = (TextBlock)controls["statusTextInfo"];
 
-            SetupStatusProgressBar(dispatcher, statusProgressBar, 0, number);
+            ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number);
             
             for (int i = 0; i < number; )
             {
-                UpdateComboBox(dispatcher, comboBox, $"...step {i}...");
-                UpdateTextBox(dispatcher, textBox, $"...step {i}...");
-                UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
-                UpdateStatusTextTask(dispatcher, statusTextTask, $"...step {i}...");
-                UpdateStatusProgressBar(dispatcher, statusProgressBar);
-                UpdateStatusTextPercentage(dispatcher, statusTextPercentage, $"{i}%");
-                UpdateStatusTextInfo(dispatcher, statusTextInfo, $"...step {i}...");
+                ViewUpdates.UpdateComboBox(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusTextTime(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusTextTask(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
+                ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
+                ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
 
                 Thread.Sleep(1000);
 
@@ -46,80 +38,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }
 
             Trace.WriteLine("...done");
-        }
-
-        private static void UpdateComboBox(Dispatcher dispatcher,
-            ComboBox comboBox, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                comboBox.Items.Add(text);
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateTextBox(Dispatcher dispatcher,
-            TextBox textBox, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                textBox.AppendText(text + Environment.NewLine);
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateStatusTextTime(Dispatcher dispatcher, 
-            TextBlock statusTextTime, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusTextTime.Text = text;
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateStatusTextTask(Dispatcher dispatcher,
-            TextBlock statusTextTask, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusTextTask.Text = text;
-            }), DispatcherPriority.Background);
-        }
-
-        private static void SetupStatusProgressBar(Dispatcher dispatcher,
-            ProgressBar statusProgressBar, int min, int max)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusProgressBar.Value = min;
-                statusProgressBar.Minimum = min;
-                statusProgressBar.Maximum = max;
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateStatusProgressBar(Dispatcher dispatcher,
-            ProgressBar statusProgressBar)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusProgressBar.Value++;
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateStatusTextPercentage(Dispatcher dispatcher,
-            TextBlock statusTextPercentage, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusTextPercentage.Text = text;
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateStatusTextInfo(Dispatcher dispatcher,
-            TextBlock statusTextInfo, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusTextInfo.Text = text;
-            }), DispatcherPriority.Background);
         }
     }
 }
