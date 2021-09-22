@@ -17,7 +17,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             controls = new Dictionary<string, object>()
             {
                 { "textBox", textBox },
-                { "statusTextTime", statusTextTime }
+                { "statusTextTime", statusTextTime },
+                { "statusTextTask", statusTextTask },
+                { "statusProgressBar", statusProgressBar },
+                { "statusTextPercentage", statusTextPercentage },
+                { "statusTextInfo", statusTextInfo },
             };
         }
 
@@ -51,18 +55,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             // TODO:Settings-Fenster
 
             //Task.Factory.StartNew(() => DoWork(10));
-
-            Task.Factory.StartNew(() => Worker.DoWork(this.Dispatcher,
-                new Dictionary<string, Object>
-                {
-                    { "btnStart", btnStart},
-                    { "imageBtnStart", imgBtnStart },
-                    { "textBtnStart", textBtnStart },
-                    { "btnSettings", btnSettings},
-                    { "imageBtnSettings", imgBtnSettings },
-                    { "textBtnSettings", textBtnSettings },
-                    { "textBox", textBox }
-                }, 10));
         }
 
         //private void DoWork(int number)

@@ -14,17 +14,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Trace.WriteLine("started...");
 
-            //var btnStart = (Button)controls["btnStart"];
-            //var imgBtnStart = (Image)controls["imgBtnStart"];
-            //var textBtnStart = (TextBlock)controls["textBtnStart"];
-            //var btnSettings = (Button)controls["btnSettings"];
-            //var imgBtnSettings = (Image)controls["imgBtnSettings"];
-            //var textBtnSettings = (TextBlock)controls["textBtnSettings"];
             var textBox = (TextBox)controls["textBox"];
             var statusTextTime = (TextBlock)controls["statusTextTime"];
-
-            //UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Stop", @"res/stop24.png");
-            //UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, false);
+            var statusTextTask = (TextBlock)controls["statusTextTask"];
+            var statusTextPercentage = (TextBlock)controls["statusTextPercentage"];
+            var statusTextInfo = (TextBlock)controls["statusTextInfo"];
 
             for (int i = 1; i <= number; i++)
             {
@@ -34,34 +28,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 }), DispatcherPriority.Background);
 
                 UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
+                UpdateStatusTextTask(dispatcher, statusTextTask, $"...step {i}...");
+                UpdateStatusTextPercentage(dispatcher, statusTextTime, $"{i}%");
+                UpdateStatusTextInfo(dispatcher, statusTextInfo, $"...step {i}...");
 
                 Trace.WriteLine($"...step {i}...");
                 Thread.Sleep(1000);
             }
 
-            //UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Start", @"/res/play24.png");
-            //UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, true);
-
             Trace.WriteLine("...done");
-        }
-
-        private static void UpdateBtnStart(Dispatcher dispatcher, Button btnStart, 
-            Image imgBtnStart, TextBlock textBtnStart, string text, string uri)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                textBtnStart.Text = text;
-                imgBtnStart.Source = new BitmapImage(new Uri(uri, UriKind.Relative));
-            }), DispatcherPriority.Background);
-        }
-
-        private static void UpdateBtnSettings(Dispatcher dispatcher, Button btnSettings, 
-            Image imgBtnSettings, TextBlock textBtnSettings, bool isEnabled)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                btnSettings.IsEnabled = isEnabled;
-            }), DispatcherPriority.Background);
         }
 
         private static void UpdateStatusTextTime(Dispatcher dispatcher, 
@@ -70,6 +45,42 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             dispatcher.BeginInvoke(new Action(() =>
             {
                 statusTextTime.Text = text;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateStatusTextTask(Dispatcher dispatcher,
+            TextBlock statusTextTask, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusTextTask.Text = text;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateStatusProgressBar(Dispatcher dispatcher,
+            ProgressBar statusProgressBar, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusProgressBar.Value++;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateStatusTextPercentage(Dispatcher dispatcher,
+            TextBlock statusTextPercentage, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusTextPercentage.Text = text;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateStatusTextInfo(Dispatcher dispatcher,
+            TextBlock statusTextInfo, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusTextInfo.Text = text;
             }), DispatcherPriority.Background);
         }
     }
