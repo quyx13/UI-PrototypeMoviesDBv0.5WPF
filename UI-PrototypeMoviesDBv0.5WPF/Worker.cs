@@ -8,7 +8,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public class Worker
     {
-        public bool run = true;
+        public bool run = false;
 
         public void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
         {
