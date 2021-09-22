@@ -47,7 +47,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     { "imageBtnSettings", imgBtnSettings },
                     { "textBtnSettings", textBtnSettings },
                     { "textBox", textBox }
-                }, 10400));
+                }, 10));
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)

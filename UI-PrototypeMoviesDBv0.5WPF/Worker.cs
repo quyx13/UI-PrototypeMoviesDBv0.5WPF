@@ -22,8 +22,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             var textBtnSettings = (TextBlock)controls["textBtnSettings"];
             var textBox = (TextBox)controls["textBox"];
 
-            UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Stop", @"res/stop24.png");
-            UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, false);
+            //UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Stop", @"res/stop24.png");
+            //UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, false);
 
             for (int i = 1; i <= number; i++)
             {
@@ -36,8 +36,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 Thread.Sleep(1000);
             }
 
-            UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Start", @"/res/play24.png");
-            UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, true);
+            //UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Start", @"/res/play24.png");
+            //UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, true);
 
             Trace.WriteLine("...done");
         }
