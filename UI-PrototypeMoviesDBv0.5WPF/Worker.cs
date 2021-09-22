@@ -30,24 +30,22 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             state = State.running;
             ViewUpdates.SetStateRunning(dispatcher, controls, number);
-            
+
+            ViewUpdates.UpdateStatusTextTime(dispatcher, controls, "JO");
+
             for (int i = 0; i < number; )
             {
                 #region Actually Working Area
                 ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
-                var text = "";
+                
                 if (i > 0)
                 {
                     var timeLeft = TimeSpan.FromMilliseconds((number - i) * ((int)timer.Elapsed.TotalMilliseconds / i));
-                    text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
-                        $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
+                    ViewUpdates.UpdateStatusTextTime(dispatcher, controls, 
+                        $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
+                        $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)");
                 }
-                else
-                {
-                    text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:" +
-                        $"{timer.Elapsed.Seconds:D2}s (remaining: XXh:XXm:XXs)";
-                }
-                ViewUpdates.UpdateStatusTextTime(dispatcher, controls, text);
+                
                 ViewUpdates.UpdateStatusTextTask(dispatcher, controls, 
                     $"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
                 ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
