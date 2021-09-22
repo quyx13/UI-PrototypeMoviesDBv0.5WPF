@@ -17,9 +17,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             var textBox = (TextBox)controls["textBox"];
             var statusTextTime = (TextBlock)controls["statusTextTime"];
             var statusTextTask = (TextBlock)controls["statusTextTask"];
+            var statusProgressBar = (ProgressBar)controls["statusProgressBar"];
             var statusTextPercentage = (TextBlock)controls["statusTextPercentage"];
             var statusTextInfo = (TextBlock)controls["statusTextInfo"];
 
+            SetupStatusProgressBar(dispatcher, statusProgressBar, 0, number);
+            
             for (int i = 1; i <= number; i++)
             {
                 dispatcher.BeginInvoke(new Action(() =>
@@ -29,6 +32,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                 UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
                 UpdateStatusTextTask(dispatcher, statusTextTask, $"...step {i}...");
+                UpdateStatusProgressBar(dispatcher, statusProgressBar);
                 UpdateStatusTextPercentage(dispatcher, statusTextPercentage, $"{i}%");
                 UpdateStatusTextInfo(dispatcher, statusTextInfo, $"...step {i}...");
 
@@ -57,15 +61,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }), DispatcherPriority.Background);
         }
 
-        private static void UpdateStatusProgressBar(Dispatcher dispatcher,
-            ProgressBar statusProgressBar, string text)
-        {
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                statusProgressBar.Value++;
-            }), DispatcherPriority.Background);
-        }
-
         private static void SetupStatusProgressBar(Dispatcher dispatcher,
             ProgressBar statusProgressBar, int min, int max)
         {
@@ -73,6 +68,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 statusProgressBar.Minimum = min;
                 statusProgressBar.Maximum = max;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateStatusProgressBar(Dispatcher dispatcher,
+            ProgressBar statusProgressBar)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusProgressBar.Value++;
             }), DispatcherPriority.Background);
         }
 
