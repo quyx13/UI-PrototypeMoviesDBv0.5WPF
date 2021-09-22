@@ -14,6 +14,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Trace.WriteLine("started...");
 
+            var btnStart = (Button)controls["btnStart"];
+            var btnStartImg = (Image)controls["btnStartImg"];
+            var btnStartTxt = (TextBlock)controls["btnStartTxt"];
+            var btnSettings = (Button)controls["btnSettings"];
+            var btnSettingsImg = (Image)controls["btnSettingsImg"];
+            var btnSettingsTxt = (TextBlock)controls["btnSettingsTxt"];
             var comboBox = (ComboBox)controls["comboBox"];
             var textBox = (TextBox)controls["textBox"];
             var statusTextTime = (TextBlock)controls["statusTextTime"];
