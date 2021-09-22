@@ -66,6 +66,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.BeginInvoke(new Action(() =>
             {
+                statusProgressBar.Value = min;
                 statusProgressBar.Minimum = min;
                 statusProgressBar.Maximum = max;
             }), DispatcherPriority.Background);
