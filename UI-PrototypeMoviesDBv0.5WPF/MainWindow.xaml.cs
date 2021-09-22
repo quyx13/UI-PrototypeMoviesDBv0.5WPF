@@ -39,14 +39,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             };
 
             worker = new Worker(this.Dispatcher, controls);
-
-            statusTextTime.Text = "00h:00m:00s (remaining: 00h:00m:00s)";
-            statusTextTask.Text = "0 of 0";
-            statusProgressBar.Value = 0;
-            statusProgressBar.Minimum = 0;
-            statusProgressBar.Maximum = 1;
-            statusTextPercentage.Text = "0%";
-            statusTextInfo.Text = "Ready";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

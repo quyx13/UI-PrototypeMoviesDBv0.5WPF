@@ -233,7 +233,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public static void SetStateReady(Dispatcher dispatcher,
             Dictionary<string, Object> controls)
         {
-
+            UpdateStatusTextTime(dispatcher, controls, "00h:00m:00s (remaining: 00h:00m:00s)");
+            UpdateStatusTextTask(dispatcher, controls, "0 of 0");
+            SetupStatusProgressBar(dispatcher, controls, 0, 1, 0);
+            UpdateStatusTextPercentage(dispatcher, controls, "0%");
+            UpdateStatusTextInfo(dispatcher, controls, "Ready");
         }
 
         public static void SetStateRunning(Dispatcher dispatcher,
@@ -266,15 +270,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public static void SetStateDone(Dispatcher dispatcher,
             Dictionary<string, Object> controls)
         {
-            ViewUpdates.UpdateBtnStart(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
-            ViewUpdates.UpdateBtnPause(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
-            ViewUpdates.UpdateBtnStop(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
-            ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
-            ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
+            UpdateBtnStart(dispatcher, controls, true);
+            UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
+            UpdateBtnPause(dispatcher, controls, false);
+            UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
+            UpdateBtnStop(dispatcher, controls, false);
+            UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
+            UpdateBtnSettings(dispatcher, controls, true);
+            UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
+            UpdateStatusTextInfo(dispatcher, controls, "Done");
         }
     }
 }
