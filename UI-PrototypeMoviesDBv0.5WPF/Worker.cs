@@ -36,7 +36,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             for (int i = 0; i < number; )
             {
                 #region Actually Working Area
-                ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateTextBox(dispatcher, controls, $"{i}:{timer.Elapsed.TotalMilliseconds}");
                 
                 if (i > 0)
                 {
