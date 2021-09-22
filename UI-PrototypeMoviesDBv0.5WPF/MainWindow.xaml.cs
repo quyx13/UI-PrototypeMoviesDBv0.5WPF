@@ -8,9 +8,17 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public partial class MainWindow : Window
     {
+        private Dictionary<string, Object> controls;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            controls = new Dictionary<string, object>()
+            {
+                { "textBox", textBox },
+                { "statusTextTime", statusTextTime }
+            };
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -35,11 +43,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            Task.Factory.StartNew(() => Worker.DoWork(this.Dispatcher,
-                new Dictionary<string, Object>
-                {
-                    { "textBox", textBox }
-                }, 10));
+            Task.Factory.StartNew(() => Worker.DoWork(this.Dispatcher, controls, 10));
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)

@@ -21,6 +21,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             //var imgBtnSettings = (Image)controls["imgBtnSettings"];
             //var textBtnSettings = (TextBlock)controls["textBtnSettings"];
             var textBox = (TextBox)controls["textBox"];
+            var statusTextTime = (TextBlock)controls["statusTextTime"];
 
             //UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Stop", @"res/stop24.png");
             //UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, false);
@@ -31,6 +32,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 {
                     textBox.AppendText(i.ToString() + Environment.NewLine);
                 }), DispatcherPriority.Background);
+
+                UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
 
                 Trace.WriteLine($"...step {i}...");
                 Thread.Sleep(1000);
@@ -58,6 +61,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             dispatcher.BeginInvoke(new Action(() =>
             {
                 btnSettings.IsEnabled = isEnabled;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateStatusTextTime(Dispatcher dispatcher, 
+            TextBlock statusTextTime, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusTextTime.Text = text;
             }), DispatcherPriority.Background);
         }
     }
