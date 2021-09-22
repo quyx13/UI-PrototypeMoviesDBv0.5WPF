@@ -50,16 +50,17 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             if (run)
             {
-                ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
-                ViewUpdates.UpdateBtnStartTxt(dispatcher, controls, "Start");
-                ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
-                ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
                 ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
             }
             else
             {
                 ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Stopped");
-            }            
+            }
+
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
+            ViewUpdates.UpdateBtnStartTxt(dispatcher, controls, "Start");
+            ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
+            ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
 
             run = false;
             timer.Reset();
