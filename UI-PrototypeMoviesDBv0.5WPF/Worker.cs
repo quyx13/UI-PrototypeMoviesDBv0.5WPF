@@ -23,6 +23,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void DoWork(int number)
         {
+            var numberDouble = (double)number;
+
             var timer = new Stopwatch();
             timer.Start();
 
@@ -34,12 +36,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 #region Actually Working Area
                 ViewUpdates.UpdateComboBox(dispatcher, controls, $"...step {i}...");
                 ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
-                ViewUpdates.UpdateStatusTextTime(dispatcher, controls, $"...step {i}...");
-                //ViewUpdates.UpdateStatusTextTask(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusTextTime(dispatcher, controls, i, number, timer.Elapsed);
                 ViewUpdates.UpdateStatusTextTask(dispatcher, controls, 
                     $"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
                 ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
-                ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
+                ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, 
+                    $"{((i + 1) / numberDouble * 100):F2}%");
                 //ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
                 
                 i++;
