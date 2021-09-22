@@ -229,5 +229,52 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 statusTextInfo.Text = text;
             }), DispatcherPriority.Background);
         }
+
+        public static void SetStateReady(Dispatcher dispatcher,
+            Dictionary<string, Object> controls)
+        {
+
+        }
+
+        public static void SetStateRunning(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, int number)
+        {
+            UpdateBtnStart(dispatcher, controls, false);
+            UpdateBtnStartImg(dispatcher, controls, @"/res/play24gray.png");
+            UpdateBtnPause(dispatcher, controls, true);
+            UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24.png");
+            UpdateBtnStop(dispatcher, controls, true);
+            UpdateBtnStopImg(dispatcher, controls, @"/res/stop24.png");
+            UpdateBtnSettings(dispatcher, controls, false);
+            UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
+            SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
+            UpdateStatusTextInfo(dispatcher, controls, "Running");
+        }
+
+        public static void SetStatePaused(Dispatcher dispatcher,
+            Dictionary<string, Object> controls)
+        {
+
+        }
+
+        public static void SetStateStopped(Dispatcher dispatcher,
+            Dictionary<string, Object> controls)
+        {
+
+        }
+
+        public static void SetStateDone(Dispatcher dispatcher,
+            Dictionary<string, Object> controls)
+        {
+            ViewUpdates.UpdateBtnStart(dispatcher, controls, true);
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
+            ViewUpdates.UpdateBtnPause(dispatcher, controls, false);
+            ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
+            ViewUpdates.UpdateBtnStop(dispatcher, controls, false);
+            ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
+            ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
+            ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
+            ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
+        }
     }
 }

@@ -21,23 +21,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
         {
-            Trace.WriteLine("started...");
-
             var timer = new Stopwatch();
             timer.Start();
 
             this.state = State.running;
-
-            ViewUpdates.UpdateBtnStart(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24gray.png");
-            ViewUpdates.UpdateBtnPause(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24.png");
-            ViewUpdates.UpdateBtnStop(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24.png");
-            ViewUpdates.UpdateBtnSettings(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
-            ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
-            ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Running");
+            ViewUpdates.SetStateRunning(dispatcher, controls, number);
             
             for (int i = 0; i < number; )
             {
@@ -56,17 +44,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 #endregion
             }
 
-            ViewUpdates.UpdateBtnStart(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
-            ViewUpdates.UpdateBtnPause(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
-            ViewUpdates.UpdateBtnStop(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
-            ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
-            ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
-
             this.state = State.done;
+            ViewUpdates.SetStateDone(dispatcher, controls);
 
             timer.Reset();
         }
