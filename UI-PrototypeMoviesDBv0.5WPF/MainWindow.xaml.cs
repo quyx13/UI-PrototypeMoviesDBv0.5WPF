@@ -63,8 +63,25 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            worker.state = State.running;
-            Task.Factory.StartNew(() => worker.DoWork(10));
+            Task workerTask;
+
+            switch(worker.state)
+            {
+                case State.ready:
+                    worker.state = State.running;
+                    workerTask = Task.Factory.StartNew(() => worker.DoWork(10));
+                    break;
+                case State.running:
+                    break;
+                case State.paused:
+                    break;
+                case State.stopped:
+                    break;
+                case State.done:
+                    break;
+                default:
+                    break;
+            }            
         }
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
