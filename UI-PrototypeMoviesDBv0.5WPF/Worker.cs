@@ -12,7 +12,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Trace.WriteLine("started...");
 
-            ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number);
+            ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
             
             for (int i = 0; i < number; )
             {

@@ -119,15 +119,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         }
 
         public static void SetupStatusProgressBar(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, int min, int max)
+            Dictionary<string, Object> controls, int min, int max, int value)
         {
             var statusProgressBar = (ProgressBar)controls["statusProgressBar"];
 
             dispatcher.BeginInvoke(new Action(() =>
             {
-                statusProgressBar.Value = min;
                 statusProgressBar.Minimum = min;
                 statusProgressBar.Maximum = max;
+                statusProgressBar.Value = value;
             }), DispatcherPriority.Background);
         }
 
