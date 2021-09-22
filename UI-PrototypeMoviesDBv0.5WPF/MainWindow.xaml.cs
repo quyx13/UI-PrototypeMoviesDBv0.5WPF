@@ -16,6 +16,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             controls = new Dictionary<string, object>()
             {
+                { "btnStart", btnStart },
+                { "btnStartImg", btnStartImg },
+                { "btnStartTxt", btnStartTxt },
+                { "btnSettings", btnSettings },
+                { "btnSettingsImg", btnSettingsImg },
+                { "btnSettingsTxt", btnSettingsTxt },
                 { "comboBox", comboBox },
                 { "textBox", textBox },
                 { "statusTextTime", statusTextTime },
