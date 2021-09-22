@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
@@ -33,16 +35,25 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 1; i <= 10; i++ )
-            {
-                textBox.AppendText(i + Environment.NewLine);
-                Thread.Sleep(1000);
-            }
+            Task.Factory.StartNew(() => DoWork(10));
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             // TODO:Settings-Fenster
-        }        
+        }
+
+        private void DoWork(int number)
+        {
+            for (int i = 1; i <= number; i++)
+            {
+                Dispatcher.BeginInvoke(new Action(() => 
+                { 
+                    textBox.AppendText(i.ToString() + Environment.NewLine); 
+                }), DispatcherPriority.Background);
+                
+                Thread.Sleep(1000);
+            }
+        }
     }
 }
