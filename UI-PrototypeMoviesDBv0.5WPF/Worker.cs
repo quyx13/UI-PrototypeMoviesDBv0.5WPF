@@ -6,25 +6,27 @@ using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
-    public enum State
-    {
-        ready,
-        running,
-        paused,
-        stopped,
-        done
-    }
-
     public class Worker
     {
-        public State state = State.ready;
+        public State state;
+        private Dispatcher dispatcher;
+        private Dictionary<string, Object> controls;
 
-        public void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
+        public Worker(Dispatcher dispatcher, Dictionary<string, Object> controls)
+        {
+            this.dispatcher = dispatcher;
+            this.controls = controls;
+
+            state = State.ready;
+            ViewUpdates.SetStateReady(dispatcher, controls);
+        }
+
+        public void DoWork(int number)
         {
             var timer = new Stopwatch();
             timer.Start();
 
-            this.state = State.running;
+            state = State.running;
             ViewUpdates.SetStateRunning(dispatcher, controls, number);
             
             for (int i = 0; i < number; )
@@ -44,7 +46,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 #endregion
             }
 
-            this.state = State.done;
+            state = State.done;
             ViewUpdates.SetStateDone(dispatcher, controls);
 
             timer.Reset();

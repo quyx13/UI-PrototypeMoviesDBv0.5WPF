@@ -8,7 +8,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public partial class MainWindow : Window
     {
-        private Worker worker = new Worker();
+        private Worker worker;
         private Dictionary<string, Object> controls;
 
         public MainWindow()
@@ -37,6 +37,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 { "statusTextPercentage", statusTextPercentage },
                 { "statusTextInfo", statusTextInfo },
             };
+
+            worker = new Worker(this.Dispatcher, controls);
 
             statusTextTime.Text = "00h:00m:00s (remaining: 00h:00m:00s)";
             statusTextTask.Text = "0 of 0";
@@ -69,7 +71,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
+            Task.Factory.StartNew(() => worker.DoWork(10));
         }
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
