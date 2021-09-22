@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,7 +37,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            //Task.Factory.StartNew(() => DoWork(10));
             Task.Factory.StartNew(() => DoWork(10));
+            Worker.DoWork(this.Dispatcher, new Dictionary<string, Object> { { "textBox", textBox } }, 10);
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
