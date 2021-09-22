@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Threading;
+using System.Windows;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
@@ -31,7 +33,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            textBox.Text = "Hello World!";
+            for (int i = 1; i <= 10; i++ )
+            {
+                textBox.AppendText(i + Environment.NewLine);
+                Thread.Sleep(1000);
+            }
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
