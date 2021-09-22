@@ -29,7 +29,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                 UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
                 UpdateStatusTextTask(dispatcher, statusTextTask, $"...step {i}...");
-                UpdateStatusTextPercentage(dispatcher, statusTextTime, $"{i}%");
+                UpdateStatusTextPercentage(dispatcher, statusTextPercentage, $"{i}%");
                 UpdateStatusTextInfo(dispatcher, statusTextInfo, $"...step {i}...");
 
                 Trace.WriteLine($"...step {i}...");
@@ -63,6 +63,16 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             dispatcher.BeginInvoke(new Action(() =>
             {
                 statusProgressBar.Value++;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void SetupStatusProgressBar(Dispatcher dispatcher,
+            ProgressBar statusProgressBar, int min, int max)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                statusProgressBar.Minimum = min;
+                statusProgressBar.Maximum = max;
             }), DispatcherPriority.Background);
         }
 
