@@ -61,7 +61,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             // TODO:Informations-Dialog
 
-            Trace.WriteLine(work.Status);
+            if (!work.Status == null)
+                Trace.WriteLine(work.Status);
+            else
+                Trace.WriteLine("work.Status == null");
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
