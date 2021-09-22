@@ -8,7 +8,7 @@ using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
-    public static class Worker
+    public static class Worker2
     {
         public static void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
         {
@@ -27,10 +27,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             for (int i = 1; i <= number; i++)
             {
-                dispatcher.BeginInvoke(new Action(() =>
-                {
-                    textBox.AppendText(i.ToString() + Environment.NewLine);
-                }), DispatcherPriority.Background);
+                //dispatcher.BeginInvoke(new Action(() =>
+                //{
+                //    textBox.AppendText(i.ToString() + Environment.NewLine);
+                //}), DispatcherPriority.Background);
 
                 Trace.WriteLine($"...step {i}...");
                 Thread.Sleep(1000);
