@@ -41,6 +41,72 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }), DispatcherPriority.Background);
         }
 
+        public static void UpdateBtnPause(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, bool isEnabled)
+        {
+            var btnPause = (Button)controls["btnPause"];
+
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnPause.IsEnabled = isEnabled;
+            }), DispatcherPriority.Background);
+        }
+
+        public static void UpdateBtnPauseImg(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, string text)
+        {
+            var btnPauseImg = (Image)controls["btnPauseImg"];
+
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnPauseImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+            }), DispatcherPriority.Background);
+        }
+
+        public static void UpdateBtnPauseTxt(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, string text)
+        {
+            var btnPauseTxt = (TextBlock)controls["btnPauseTxt"];
+
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnPauseTxt.Text = text;
+            }), DispatcherPriority.Background);
+        }
+
+        public static void UpdateBtnStop(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, bool isEnabled)
+        {
+            var btnStop = (Button)controls["btnStop"];
+
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnStop.IsEnabled = isEnabled;
+            }), DispatcherPriority.Background);
+        }
+
+        public static void UpdateBtnStopImg(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, string text)
+        {
+            var btnStopImg = (Image)controls["btnStopImg"];
+
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnStopImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+            }), DispatcherPriority.Background);
+        }
+
+        public static void UpdateBtnStopTxt(Dispatcher dispatcher,
+            Dictionary<string, Object> controls, string text)
+        {
+            var btnStopTxt = (TextBlock)controls["btnStopTxt"];
+
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnStopTxt.Text = text;
+            }), DispatcherPriority.Background);
+        }
+
         public static void UpdateBtnSettings(Dispatcher dispatcher,
             Dictionary<string, Object> controls, bool isEnabled)
         {

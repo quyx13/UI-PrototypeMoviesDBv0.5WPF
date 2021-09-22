@@ -20,6 +20,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 { "btnStart", btnStart },
                 { "btnStartImg", btnStartImg },
                 { "btnStartTxt", btnStartTxt },
+                { "btnPause", btnPause },
+                { "btnPauseImg", btnPauseImg },
+                { "btnPauseTxt", btnPauseTxt },
+                { "btnStop", btnStop },
+                { "btnStopImg", btnStopImg },
+                { "btnStopTxt", btnStopTxt },
                 { "btnSettings", btnSettings },
                 { "btnSettingsImg", btnSettingsImg },
                 { "btnSettingsTxt", btnSettingsTxt },
@@ -63,15 +69,39 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (!worker.run)
+            if (worker.run)
+            {
+                worker.run = false;
+            }
+            else
             {
                 worker.run = true;
                 Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
             }
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            if (!worker.run)
+            {
+                
+            }
             else
             {
-                worker.run = false;
-            }            
+                
+            }
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            if (!worker.run)
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
@@ -89,7 +119,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         //        { 
         //            textBox.AppendText(i.ToString() + Environment.NewLine); 
         //        }), DispatcherPriority.Background);
-                
+
         //        Thread.Sleep(1000);
         //    }
 

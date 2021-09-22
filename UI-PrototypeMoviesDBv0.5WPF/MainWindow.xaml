@@ -51,7 +51,7 @@
                     <TextBlock x:Name="btnStartTxt" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,3,0" FontWeight="Bold">Start</TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btnPause" Grid.Column="1" Margin="3,3,0,0" IsEnabled="False">
+            <Button x:Name="btnPause" Grid.Column="1" Margin="3,3,0,0" IsEnabled="False" Click="btnPause_Click">
                 <Grid Width="72">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -62,7 +62,7 @@
                     <TextBlock x:Name="btnPauseTxt" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,3,0">Pause</TextBlock>
                 </Grid>
             </Button>
-            <Button x:Name="btnStop" Grid.Column="2" Margin="3,3,0,0" IsEnabled="False">
+            <Button x:Name="btnStop" Grid.Column="2" Margin="3,3,0,0" IsEnabled="False" Click="btnStop_Click">
                 <Grid Width="64">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
