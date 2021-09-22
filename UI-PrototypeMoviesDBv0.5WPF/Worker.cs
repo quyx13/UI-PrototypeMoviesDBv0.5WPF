@@ -26,6 +26,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             var timer = new Stopwatch();
             timer.Start();
 
+            this.state = State.running;
+
             ViewUpdates.UpdateBtnStart(dispatcher, controls, false);
             ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24gray.png");
             ViewUpdates.UpdateBtnPause(dispatcher, controls, true);
@@ -63,6 +65,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
             ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
+
+            this.state = State.done;
 
             timer.Reset();
         }
