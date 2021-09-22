@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
@@ -38,11 +36,16 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             //Task.Factory.StartNew(() => DoWork(10));
+            
             Task.Factory.StartNew(() => Worker.DoWork(this.Dispatcher, 
                 new Dictionary<string, Object> 
                 {
                     { "btnStart", btnStart},
+                    { "imageBtnStart", imgBtnStart },
+                    { "textBtnStart", textBtnStart },
                     { "btnSettings", btnSettings},
+                    { "imageBtnSettings", imgBtnSettings },
+                    { "textBtnSettings", textBtnSettings },
                     { "textBox", textBox }
                 }, 10400));
         }
@@ -50,21 +53,22 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             // TODO:Settings-Fenster
+            
         }
 
-        private void DoWork(int number)
-        {
-            for (int i = 1; i <= number; i++)
-            {
-                Dispatcher.BeginInvoke(new Action(() => 
-                { 
-                    textBox.AppendText(i.ToString() + Environment.NewLine); 
-                }), DispatcherPriority.Background);
+        //private void DoWork(int number)
+        //{
+        //    for (int i = 1; i <= number; i++)
+        //    {
+        //        Dispatcher.BeginInvoke(new Action(() => 
+        //        { 
+        //            textBox.AppendText(i.ToString() + Environment.NewLine); 
+        //        }), DispatcherPriority.Background);
                 
-                Thread.Sleep(1000);
-            }
+        //        Thread.Sleep(1000);
+        //    }
 
-            Trace.WriteLine("Done");
-        }
+        //    Trace.WriteLine("Done");
+        //}
     }
 }
