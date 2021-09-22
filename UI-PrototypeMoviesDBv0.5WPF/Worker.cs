@@ -17,8 +17,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             var timer = new Stopwatch();
             timer.Start();
 
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/stop24.png");
-            ViewUpdates.UpdateBtnStartTxt(dispatcher, controls, "Stop");
+            ViewUpdates.UpdateBtnStart(dispatcher, controls, false);
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/start24gray.png");
+            ViewUpdates.UpdateBtnPause(dispatcher, controls, true);
+            ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24.png");
+            ViewUpdates.UpdateBtnStop(dispatcher, controls, true);
+            ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24.png");
             ViewUpdates.UpdateBtnSettings(dispatcher, controls, false);
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
             ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
@@ -57,8 +61,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Stopped");
             }
 
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
-            ViewUpdates.UpdateBtnStartTxt(dispatcher, controls, "Start");
+            ViewUpdates.UpdateBtnStart(dispatcher, controls, true);
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/start24.png");
+            ViewUpdates.UpdateBtnPause(dispatcher, controls, false);
+            ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
+            ViewUpdates.UpdateBtnStop(dispatcher, controls, false);
+            ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
             ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
 
