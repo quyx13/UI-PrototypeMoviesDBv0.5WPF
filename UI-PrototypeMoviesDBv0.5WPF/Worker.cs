@@ -35,7 +35,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     ViewUpdates.UpdateStatusTextTask(dispatcher, controls, $"...step {i}...");
                     ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
                     ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
-                    ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
+                    //ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
 
                     Thread.Sleep(1000);
 
@@ -55,6 +55,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
             ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
 
+            run = false;
             timer.Reset();
 
             Trace.WriteLine("...done");
