@@ -52,24 +52,24 @@
                 </Grid>
             </Button>
             <Button x:Name="btnPause" Grid.Column="1" Margin="3,3,0,0">
-                <Grid Width="70">
+                <Grid Width="72">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="btnPauseImg" Source="/res/play24.png" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1,1,1,1"/>
+                    <Image x:Name="btnPauseImg" Source="/res/pause24gray.png" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1,1,1,1"/>
                     <TextBlock x:Name="btnPauseTxt" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,3,0" FontWeight="Bold">Pause</TextBlock>
                 </Grid>
             </Button>
             <Button x:Name="btnStop" Grid.Column="2" Margin="3,3,0,0">
-                <Grid Width="85">
+                <Grid Width="64">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Image x:Name="btnStopImg" Source="/res/settings24.png" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1,1,1,1"/>
+                    <Image x:Name="btnStopImg" Source="/res/stop24gray.png" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1,1,1,1"/>
                     <TextBlock x:Name="btnStopTxt" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,3,0">Stop</TextBlock>
                 </Grid>
             </Button>
