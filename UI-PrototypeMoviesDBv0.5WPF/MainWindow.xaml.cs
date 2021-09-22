@@ -16,6 +16,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             controls = new Dictionary<string, object>()
             {
+                { "comboBox", comboBox },
                 { "textBox", textBox },
                 { "statusTextTime", statusTextTime },
                 { "statusTextTask", statusTextTask },

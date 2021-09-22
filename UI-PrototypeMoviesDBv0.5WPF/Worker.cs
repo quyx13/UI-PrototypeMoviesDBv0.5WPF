@@ -14,6 +14,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Trace.WriteLine("started...");
 
+            var comboBox = (ComboBox)controls["comboBox"];
             var textBox = (TextBox)controls["textBox"];
             var statusTextTime = (TextBlock)controls["statusTextTime"];
             var statusTextTask = (TextBlock)controls["statusTextTask"];
@@ -25,6 +26,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             
             for (int i = 0; i < number; )
             {
+                UpdateComboBox(dispatcher, comboBox, $"...step {i}...");
                 UpdateTextBox(dispatcher, textBox, $"...step {i}...");
                 UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
                 UpdateStatusTextTask(dispatcher, statusTextTask, $"...step {i}...");
@@ -40,6 +42,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }
 
             Trace.WriteLine("...done");
+        }
+
+        private static void UpdateComboBox(Dispatcher dispatcher,
+            ComboBox comboBox, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                comboBox.Items.Add(text);
+            }), DispatcherPriority.Background);
         }
 
         private static void UpdateTextBox(Dispatcher dispatcher,
