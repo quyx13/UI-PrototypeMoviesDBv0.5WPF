@@ -23,13 +23,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             SetupStatusProgressBar(dispatcher, statusProgressBar, 0, number);
             
-            for (int i = 1; i <= number; i++)
+            for (int i = 0; i < number; )
             {
-                dispatcher.BeginInvoke(new Action(() =>
-                {
-                    textBox.AppendText(i.ToString() + Environment.NewLine);
-                }), DispatcherPriority.Background);
-
+                UpdateTextBox(dispatcher, textBox, $"...step {i}...");
                 UpdateStatusTextTime(dispatcher, statusTextTime, $"...step {i}...");
                 UpdateStatusTextTask(dispatcher, statusTextTask, $"...step {i}...");
                 UpdateStatusProgressBar(dispatcher, statusProgressBar);
@@ -37,10 +33,22 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 UpdateStatusTextInfo(dispatcher, statusTextInfo, $"...step {i}...");
 
                 Trace.WriteLine($"...step {i}...");
+                
                 Thread.Sleep(1000);
+
+                i++;
             }
 
             Trace.WriteLine("...done");
+        }
+
+        private static void UpdateTextBox(Dispatcher dispatcher,
+            TextBox textBox, string text)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                textBox.AppendText(text + Environment.NewLine);
+            }), DispatcherPriority.Background);
         }
 
         private static void UpdateStatusTextTime(Dispatcher dispatcher, 
