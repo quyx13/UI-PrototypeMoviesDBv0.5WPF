@@ -140,17 +140,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateComboBox(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
-        {
-            var comboBox = (ComboBox)controls["comboBox"];
-
-            dispatcher.BeginInvoke(new Action(() =>
-            {
-                comboBox.Items.Add(text);
-            }), DispatcherPriority.Background);
-        }
-
         public static void UpdateTextBox(Dispatcher dispatcher,
             Dictionary<string, Object> controls, string text)
         {
@@ -178,26 +167,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 statusTextTime.Text = text;
             }), DispatcherPriority.Background);
-        }
-
-        public static void UpdateStatusTextTime(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, int i, int number, TimeSpan timeSpan)
-        {
-            var text = "";
-
-            if (i > 0)
-            {
-                var timeLeft = TimeSpan.FromMilliseconds((number - i) * ((int)timeSpan.TotalMilliseconds / i));
-                text = $"{timeSpan.Hours:D2}h:{timeSpan.Minutes:D2}m:{timeSpan.Seconds:D2}s " +
-                    $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
-            }
-            else
-            {
-                text = $"{timeSpan.Hours:D2}h:{timeSpan.Minutes:D2}m:" +
-                    $"{timeSpan.Seconds:D2}s (remaining: XXh:XXm:XXs)";
-            }
-
-            UpdateStatusTextTime(dispatcher, controls, text);
         }
 
         public static void UpdateStatusTextTask(Dispatcher dispatcher,
