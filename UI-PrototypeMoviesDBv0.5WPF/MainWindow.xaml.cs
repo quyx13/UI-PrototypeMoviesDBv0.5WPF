@@ -77,7 +77,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 case State.ready:
                     worker.state = State.running;
-                    work = Task.Factory.StartNew(() => worker.DoWork(10));
+                    work = Task.Factory.StartNew(() => worker.DoWork(5200));
                     break;
                 case State.running:
                     break;
@@ -89,7 +89,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     break;
                 default:
                     break;
-            }            
+            }
         }
 
         private void btnPause_Click(object sender, RoutedEventArgs e)

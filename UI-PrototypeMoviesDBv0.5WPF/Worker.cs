@@ -40,8 +40,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
                 //ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
 
-                Thread.Sleep(1000);
-
                 i++;
                 #endregion
             }
