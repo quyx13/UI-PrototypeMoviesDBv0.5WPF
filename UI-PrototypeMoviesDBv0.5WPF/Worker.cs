@@ -12,6 +12,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     {
         public static void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
         {
+            Trace.WriteLine("started...");
+
             var btnStart = (Button)controls["btnStart"];
             var imgBtnStart = (Image)controls["imgBtnStart"];
             var textBtnStart = (TextBlock)controls["textBtnStart"];
@@ -36,7 +38,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnStart(dispatcher, btnStart, imgBtnStart, textBtnStart, "Start", @"/res/play24.png");
             UpdateBtnSettings(dispatcher, btnSettings, imgBtnSettings, textBtnSettings, true);
 
-            Trace.WriteLine("Done");
+            Trace.WriteLine("...done");
         }
 
         private static void UpdateBtnStart(Dispatcher dispatcher, Button btnStart, 
