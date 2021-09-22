@@ -9,6 +9,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     public partial class MainWindow : Window
     {
         private Worker worker;
+        private Task work;
         private Dictionary<string, Object> controls;
 
         public MainWindow()
@@ -59,17 +60,17 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void menuInfo_Click(object sender, RoutedEventArgs e)
         {
             // TODO:Informations-Dialog
+
+            Trace.WriteLine(work.Status);
         }
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            Task workerTask;
-
             switch(worker.state)
             {
                 case State.ready:
                     worker.state = State.running;
-                    workerTask = Task.Factory.StartNew(() => worker.DoWork(10));
+                    work = Task.Factory.StartNew(() => worker.DoWork(10));
                     break;
                 case State.running:
                     break;
