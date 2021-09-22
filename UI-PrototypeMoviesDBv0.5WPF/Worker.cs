@@ -32,6 +32,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             for (int i = 0; i < number; )
             {
                 #region Actually Working Area
+                i++;
+
                 ViewUpdates.UpdateComboBox(dispatcher, controls, $"...step {i}...");
                 ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
                 ViewUpdates.UpdateStatusTextTime(dispatcher, controls, $"...step {i}...");
@@ -39,8 +41,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
                 ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
                 //ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
-
-                i++;
                 #endregion
             }
 

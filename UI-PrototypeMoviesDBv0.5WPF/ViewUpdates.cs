@@ -159,7 +159,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             dispatcher.BeginInvoke(new Action(() =>
             {
                 textBox.AppendText(text + Environment.NewLine);
+                ScrollToEnd(textBox);
             }), DispatcherPriority.Background);
+        }
+
+        private static void ScrollToEnd(TextBox textBox)
+        {
+            textBox.CaretIndex = textBox.Text.Length;
+            textBox.ScrollToEnd();
         }
 
         public static void UpdateStatusTextTime(Dispatcher dispatcher,
