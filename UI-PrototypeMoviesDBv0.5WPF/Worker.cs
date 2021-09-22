@@ -32,6 +32,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     textBox.AppendText(i.ToString() + Environment.NewLine);
                 }), DispatcherPriority.Background);
 
+                Trace.WriteLine($"...step {i}...");
                 Thread.Sleep(1000);
             }
 
