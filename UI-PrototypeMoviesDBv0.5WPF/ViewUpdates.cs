@@ -258,16 +258,18 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public static void SetStatePaused(Dispatcher dispatcher,
             Dictionary<string, Object> controls)
         {
-
+            UpdateBtnStart(dispatcher, controls, true);
+            UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
+            UpdateBtnPause(dispatcher, controls, false);
+            UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
+            UpdateBtnStop(dispatcher, controls, true);
+            UpdateBtnStopImg(dispatcher, controls, @"/res/stop24.png");
+            UpdateBtnSettings(dispatcher, controls, false);
+            UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
+            UpdateStatusTextInfo(dispatcher, controls, "Paused");
         }
 
         public static void SetStateStopped(Dispatcher dispatcher,
-            Dictionary<string, Object> controls)
-        {
-
-        }
-
-        public static void SetStateDone(Dispatcher dispatcher,
             Dictionary<string, Object> controls)
         {
             UpdateBtnStart(dispatcher, controls, true);
@@ -278,6 +280,13 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
             UpdateBtnSettings(dispatcher, controls, true);
             UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
+            UpdateStatusTextInfo(dispatcher, controls, "Stopped");
+        }
+
+        public static void SetStateDone(Dispatcher dispatcher,
+            Dictionary<string, Object> controls)
+        {
+            SetStateStopped(dispatcher, controls);
             UpdateStatusTextInfo(dispatcher, controls, "Done");
         }
     }
