@@ -84,14 +84,14 @@
             <StatusBarItem Grid.Column="0">
                 <Border BorderBrush="#FFBAB7B7" BorderThickness="0,0,1,1" Margin="1,1,0,0" Height="20">
                     <Border BorderBrush="Black" BorderThickness="1,1,0,0">
-                        <TextBlock x:Name="statusTextTime" Text="XXh:XXm:XXs (remaining: XXh:XXm:XXs)" TextAlignment="Center" Margin="2,0,2,0"/>
+                        <TextBlock x:Name="statusTextTime" Text="XXh:XXm:XXs (remaining: XXh:XXm:XXs)" TextAlignment="Center" Margin="2,0,2,0" Width="210"/>
                     </Border>
                 </Border>
             </StatusBarItem>
             <StatusBarItem Grid.Column="1">
                 <Border BorderBrush="#FFBAB7B7" BorderThickness="0,0,1,1" Margin="1,1,0,0" Height="20">
                     <Border BorderBrush="Black" BorderThickness="1,1,0,0">
-                        <TextBlock x:Name="statusTextTask" Text="XXX.XXX of XXX.XXX" TextAlignment="Right" Margin="2,0,2,0"/>
+                        <TextBlock x:Name="statusTextTask" Text="XXX.XXX of XXX.XXX" TextAlignment="Right" Margin="2,0,2,0" Width="108"/>
                     </Border>
                 </Border>
             </StatusBarItem>
@@ -104,7 +104,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <ProgressBar x:Name="statusProgressBar" Grid.Column="0" Value="50" Width="100" Height="16" Margin="1,1,1,1"/>
-                            <TextBlock x:Name="statusTextPercentage" Grid.Column="1" Text="100,00%" TextAlignment="Right" Margin="3,0,0,0"/>
+                            <TextBlock x:Name="statusTextPercentage" Grid.Column="1" Text="100,00%" TextAlignment="Right" Margin="3,0,0,0" Width="45"/>
                         </Grid>
                     </Border>
                 </Border>
