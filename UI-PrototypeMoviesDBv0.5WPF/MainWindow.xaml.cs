@@ -63,7 +63,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             var worker = new Worker();
-            Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
+
+            if (!worker.run)
+            {
+                Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
+            }
+            else
+            {
+                worker.run = false;
+            }            
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
