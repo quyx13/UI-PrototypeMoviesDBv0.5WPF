@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -53,6 +54,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 }), DispatcherPriority.Background);
                 
                 Thread.Sleep(1000);
+
+                Trace.WriteLine("Done");
             }
         }
     }
