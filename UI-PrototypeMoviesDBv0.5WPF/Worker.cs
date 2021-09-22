@@ -12,9 +12,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public static void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
         {
             var btnStart = (Button)controls["btnStart"];
+            var btnSettings = (Button)controls["btnSettings"];
             var textBox = (TextBox)controls["textBox"];
 
-            UpdateBtnStart(dispatcher, btnStart, false, "Stop");
+            UpdateBtnStart(dispatcher, btnStart, "Stop");
+            UpdateBtnSettings(dispatcher, btnSettings, false);
 
             for (int i = 1; i <= number; i++)
             {
@@ -26,17 +28,25 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 Thread.Sleep(1000);
             }
 
-            UpdateBtnStart(dispatcher, btnStart, true, "Start");
+            UpdateBtnStart(dispatcher, btnStart, "Start");
+            UpdateBtnSettings(dispatcher, btnSettings, true);
 
             Trace.WriteLine("Done");
         }
 
-        private static void UpdateBtnStart(Dispatcher dispatcher, Button btnStart, bool isEnabled, string text)
+        private static void UpdateBtnStart(Dispatcher dispatcher, Button btnStart, string text)
         {
             dispatcher.BeginInvoke(new Action(() =>
             {
-                btnStart.IsEnabled = isEnabled;
                 btnStart.Content = text;
+            }), DispatcherPriority.Background);
+        }
+
+        private static void UpdateBtnSettings(Dispatcher dispatcher, Button btnSettings, bool isEnabled)
+        {
+            dispatcher.BeginInvoke(new Action(() =>
+            {
+                btnSettings.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
     }
