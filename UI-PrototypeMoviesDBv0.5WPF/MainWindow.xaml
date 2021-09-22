@@ -39,7 +39,7 @@
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
             <Button x:Name="btnStart" Grid.Column="0" Margin="3,3,0,0" Click="btnStart_Click">
-                <Grid>
+                <Grid Width="70">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="10"/>
@@ -50,7 +50,7 @@
                 </Grid>
             </Button>
             <Button x:Name="btnSettings" Grid.Column="1" Margin="3,3,0,0" Click="btnSettings_Click">
-                <Grid>
+                <Grid Width="85">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="10"/>
