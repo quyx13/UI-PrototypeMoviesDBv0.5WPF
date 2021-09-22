@@ -66,6 +66,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             if (!worker.run)
             {
+                worker.run = true;
                 Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
             }
             else
