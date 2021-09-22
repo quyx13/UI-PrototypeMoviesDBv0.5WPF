@@ -69,39 +69,17 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (worker.run)
-            {
-                worker.run = false;
-            }
-            else
-            {
-                worker.run = true;
-                Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
-            }
+            Task.Factory.StartNew(() => worker.DoWork(this.Dispatcher, controls, 10));
         }
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
-            if (!worker.run)
-            {
-                
-            }
-            else
-            {
-                
-            }
+            
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            if (!worker.run)
-            {
-                
-            }
-            else
-            {
-                
-            }
+            
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)

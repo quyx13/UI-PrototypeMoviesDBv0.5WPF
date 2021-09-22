@@ -6,9 +6,18 @@ using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
+    public enum State
+    {
+        ready,
+        running,
+        paused,
+        stopped,
+        done
+    }
+
     public class Worker
     {
-        public bool run = false;
+        public State state = State.ready;
 
         public void DoWork(Dispatcher dispatcher, Dictionary<string, Object> controls, int number)
         {
@@ -30,35 +39,19 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             
             for (int i = 0; i < number; )
             {
-                if (run)
-                {
-                    #region Actually Working Area
-                    ViewUpdates.UpdateComboBox(dispatcher, controls, $"...step {i}...");
-                    ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
-                    ViewUpdates.UpdateStatusTextTime(dispatcher, controls, $"...step {i}...");
-                    ViewUpdates.UpdateStatusTextTask(dispatcher, controls, $"...step {i}...");
-                    ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
-                    ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
-                    //ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
+                #region Actually Working Area
+                ViewUpdates.UpdateComboBox(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateTextBox(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusTextTime(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusTextTask(dispatcher, controls, $"...step {i}...");
+                ViewUpdates.UpdateStatusProgressBar(dispatcher, controls);
+                ViewUpdates.UpdateStatusTextPercentage(dispatcher, controls, $"{i}%");
+                //ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, $"...step {i}...");
 
-                    Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
-                    i++; 
-                    #endregion
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            if (run)
-            {
-                ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
-            }
-            else
-            {
-                ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Stopped");
+                i++;
+                #endregion
             }
 
             ViewUpdates.UpdateBtnStart(dispatcher, controls, true);
@@ -69,11 +62,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             ViewUpdates.UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
             ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
             ViewUpdates.UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
+            ViewUpdates.UpdateStatusTextInfo(dispatcher, controls, "Done");
 
-            run = false;
             timer.Reset();
-
-            Trace.WriteLine("...done");
         }
     }
 }
