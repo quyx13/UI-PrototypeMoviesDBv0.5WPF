@@ -12,6 +12,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             Trace.WriteLine("started...");
 
+            ViewUpdates.UpdateBtnSettings(dispatcher, controls, false);
             ViewUpdates.SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
             
             for (int i = 0; i < number; )
@@ -28,6 +29,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                 i++;
             }
+
+            ViewUpdates.UpdateBtnSettings(dispatcher, controls, true);
 
             Trace.WriteLine("...done");
         }
