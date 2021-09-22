@@ -31,7 +31,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            textBox.Text = "Hello World!";
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
