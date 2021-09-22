@@ -18,7 +18,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             timer.Start();
 
             ViewUpdates.UpdateBtnStart(dispatcher, controls, false);
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/start24gray.png");
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24gray.png");
             ViewUpdates.UpdateBtnPause(dispatcher, controls, true);
             ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24.png");
             ViewUpdates.UpdateBtnStop(dispatcher, controls, true);
@@ -62,7 +62,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }
 
             ViewUpdates.UpdateBtnStart(dispatcher, controls, true);
-            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/start24.png");
+            ViewUpdates.UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
             ViewUpdates.UpdateBtnPause(dispatcher, controls, false);
             ViewUpdates.UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
             ViewUpdates.UpdateBtnStop(dispatcher, controls, false);
