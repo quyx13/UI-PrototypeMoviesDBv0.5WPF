@@ -8,6 +8,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public partial class MainWindow : Window
     {
+        private Worker worker = new Worker();
         private Dictionary<string, Object> controls;
 
         public MainWindow()
@@ -62,8 +63,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            var worker = new Worker();
-
             if (!worker.run)
             {
                 worker.run = true;
