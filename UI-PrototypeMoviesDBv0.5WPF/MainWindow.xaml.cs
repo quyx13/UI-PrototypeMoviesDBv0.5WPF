@@ -15,7 +15,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             InitializeComponent();
 
             view = new View(this.Dispatcher, this);
-            worker = new Worker(this.Dispatcher, this, view);
+            worker = new Worker(view);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

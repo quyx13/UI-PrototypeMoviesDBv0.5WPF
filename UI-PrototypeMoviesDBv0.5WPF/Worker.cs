@@ -9,13 +9,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     {
         public State state;
         private View view;
-        private Dispatcher dis;
-        private MainWindow main;
 
-        public Worker(Dispatcher dis, MainWindow main, View view)
+        public Worker(View view)
         {
-            this.dis = dis;
-            this.main = main;
             this.view = view;
 
             state = State.ready;
