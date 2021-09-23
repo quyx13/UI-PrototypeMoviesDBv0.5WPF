@@ -21,9 +21,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             var timer = new Stopwatch();
             timer.Start();
 
-            state = State.running;
-            view.SetStateRunning(number);
-
             for (int i = 0; i < number; )
             {
                 if (state == State.running)

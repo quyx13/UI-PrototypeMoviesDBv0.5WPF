@@ -49,16 +49,20 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            var number = 5200;
+            
             switch(worker.state)
             {
                 case State.ready:
                     worker.state = State.running;
-                    work = Task.Factory.StartNew(() => worker.DoWork(5200));
+                    work = Task.Factory.StartNew(() => worker.DoWork(number));
+                    view.SetStateRunning(number);
                     break;
                 case State.running:
                     break;
                 case State.paused:
                     worker.state = State.running;
+                    view.SetStatePaused();
                     break;
                 case State.stopped:
                     // TODO:Reset&Neustart
