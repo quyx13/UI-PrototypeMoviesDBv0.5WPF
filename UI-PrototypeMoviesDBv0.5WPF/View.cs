@@ -6,7 +6,7 @@ using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
-    public static class ViewUpdates2
+    public static class View
     {
         public static void UpdateBtnStart(Dispatcher dispatcher,
             Dictionary<string, Object> controls, bool isEnabled)
