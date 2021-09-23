@@ -67,7 +67,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     break;
                 case State.paused:
                     worker.timer.Stop();
-                    Trace.WriteLine($"stopped at: {worker.timer.ElapsedMilliseconds}");
+                    Trace.WriteLine($"restarted with: {worker.timer.ElapsedMilliseconds}");
                     worker.state = State.running;
                     view.SetStateRunning(number);
                     break;
@@ -87,6 +87,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             if (worker.state == State.running)
             {
                 worker.timer.Stop();
+                Trace.WriteLine($"paused at: {worker.timer.ElapsedMilliseconds}");
                 worker.state = State.paused;
                 view.SetStatePaused();
             }
