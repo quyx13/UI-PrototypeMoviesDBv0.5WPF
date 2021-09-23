@@ -50,10 +50,13 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.stopped:
                     goto case State.done;
                 case State.done:
-                    worker.timer.Restart();
-                    worker.state = State.running;
-                    work = Task.Factory.StartNew(() => worker.DoWork(number));
-                    view.SetStateRunning();
+                    if (work == null || work.Status == TaskStatus.RanToCompletion)
+                    {
+                        worker.timer.Restart();
+                        worker.state = State.running;
+                        work = Task.Factory.StartNew(() => worker.DoWork(number));
+                        view.SetStateRunning();
+                    }
                     break;
                 case State.paused:
                     worker.timer.Start();
