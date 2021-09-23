@@ -17,7 +17,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnStart(bool isEnabled)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnStart.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
@@ -25,7 +25,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnStartImg(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnStartImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
@@ -33,7 +33,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnStartTxt(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnStartTxt.Text = text;
             }), DispatcherPriority.Background);
@@ -41,7 +41,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnPause(bool isEnabled)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnPause.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
@@ -49,7 +49,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnPauseImg(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnPauseImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
@@ -57,7 +57,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnPauseTxt(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnPauseTxt.Text = text;
             }), DispatcherPriority.Background);
@@ -65,7 +65,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnStop(bool isEnabled)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnStop.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
@@ -73,7 +73,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnStopImg(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnStopImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
@@ -81,7 +81,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnStopTxt(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnStopTxt.Text = text;
             }), DispatcherPriority.Background);
@@ -89,7 +89,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnSettings(bool isEnabled)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnSettings.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
@@ -97,7 +97,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnSettingsImg(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnSettingsImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
@@ -105,7 +105,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateBtnSettingsTxt(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.btnSettingsTxt.Text = text;
             }), DispatcherPriority.Background);
@@ -113,7 +113,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateTextBox(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.textBox.AppendText(text + Environment.NewLine);
             }), DispatcherPriority.Background);
@@ -127,7 +127,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateStatusTextTime(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.statusTextTime.Text = text;
             }), DispatcherPriority.Background);
@@ -135,7 +135,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateStatusTextTask(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.statusTextTask.Text = text;
             }), DispatcherPriority.Background);
@@ -143,7 +143,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetupStatusProgressBar(int min, int max, int value)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.statusProgressBar.Minimum = min;
                 main.statusProgressBar.Maximum = max;
@@ -153,7 +153,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateStatusProgressBar()
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.statusProgressBar.Value++;
             }), DispatcherPriority.Background);
@@ -161,7 +161,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateStatusTextPercentage(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.statusTextPercentage.Text = text;
             }), DispatcherPriority.Background);
@@ -169,7 +169,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateStatusTextInfo(string text)
         {
-            dis.BeginInvoke(new Action(() =>
+            dis.Invoke(new Action(() =>
             {
                 main.statusTextInfo.Text = text;
             }), DispatcherPriority.Background);
