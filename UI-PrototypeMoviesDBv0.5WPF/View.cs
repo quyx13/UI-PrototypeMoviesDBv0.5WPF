@@ -122,7 +122,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void ScrollToEnd()
         {
-            main.textBox.CaretIndex = main.textBox.Text.Length;
             main.textBox.ScrollToEnd();
         }
 

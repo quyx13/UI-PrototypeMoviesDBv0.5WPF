@@ -18,8 +18,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void DoWork(int number)
         {
-            Trace.WriteLine("1");
-
             var timer = new Stopwatch();
             timer.Start();
 
@@ -29,10 +27,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             for (int i = 0; i < number; )
             {
                 #region Actually Working Area
-                Trace.WriteLine("2");
-
                 view.UpdateTextBox(i.ToString());
-                //view.ScrollToEnd();
+                view.ScrollToEnd();
                 if (i > 0)
                 {
                     var timeLeft = TimeSpan.FromMilliseconds((number - i) * ((int)timer.Elapsed.TotalMilliseconds / i));
@@ -48,7 +44,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 #endregion
             }
 
-            Trace.WriteLine("3");
             Trace.WriteLine($"{timer.ElapsedMilliseconds}");
 
             state = State.done;
