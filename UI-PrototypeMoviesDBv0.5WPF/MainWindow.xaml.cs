@@ -62,16 +62,19 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     worker.timer.Start();
                     Trace.WriteLine($"restarted with: {worker.timer.ElapsedMilliseconds}");
                     worker.state = State.running;
-                    view.SetStateRunning(number);
+                    view.SetStateRunning();
                     break;
-                case State.stopped:
-                case State.done:
                 case State.ready:
+                    view.SetupStatusProgressBar(0, number, 0);
+                    goto case State.stopped;
+                case State.stopped:
+                    goto case State.done;
+                case State.done:
                     worker.timer.Restart();
                     Trace.WriteLine($"started with: {worker.timer.ElapsedMilliseconds}");
                     worker.state = State.running;
                     work = Task.Factory.StartNew(() => worker.DoWork(number));
-                    view.SetStateRunning(number);
+                    view.SetStateRunning();
                     break;
                 default:
                     break;

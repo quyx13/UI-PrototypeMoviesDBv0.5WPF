@@ -186,7 +186,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateStatusTextInfo("Ready");
         }
 
-        public void SetStateRunning(int number)
+        public void SetStateRunning()
         {
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
@@ -196,7 +196,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnStopImg(@"/res/stop24.png");
             UpdateBtnSettings(false);
             UpdateBtnSettingsImg(@"/res/settings24gray.png");
-            SetupStatusProgressBar(0, number, 0);
             UpdateStatusTextInfo("Running");
         }
 
