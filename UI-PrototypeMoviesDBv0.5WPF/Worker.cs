@@ -36,14 +36,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             for (int i = 0; i < number; )
             {
                 #region Actually Working Area
-                ViewUpdates.UpdateTextBox(dispatcher, controls, $"{i}:{timer.Elapsed.TotalMilliseconds}");
                 
                 if (i > 0)
                 {
                     var timeLeft = TimeSpan.FromMilliseconds((number - i) * ((int)timer.Elapsed.TotalMilliseconds / i));
-                    ViewUpdates.UpdateStatusTextTime(dispatcher, controls, 
-                        $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
-                        $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)");
+                    //ViewUpdates.UpdateStatusTextTime(dispatcher, controls, 
+                    //    $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s (remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)");
+                    Trace.WriteLine($"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s (remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)");
+                    ViewUpdates.UpdateStatusTextTime(dispatcher, controls, i.ToString());
                 }
                 
                 ViewUpdates.UpdateStatusTextTask(dispatcher, controls, 
