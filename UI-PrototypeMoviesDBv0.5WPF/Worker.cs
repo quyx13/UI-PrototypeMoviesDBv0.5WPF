@@ -44,10 +44,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                     var timeLeft = TimeSpan.FromMilliseconds((number - i) * ((int)timer.Elapsed.TotalMilliseconds / i));
 
-                    string text = $"number:{number}\t";
-                    text += $"i:{i}\t";
-                    text += $"elapsed:{(int)timer.Elapsed.TotalMilliseconds}\t";
-                    text += $"remaining:{(int)timeLeft.TotalMilliseconds}\t";
+                    string text = $"i:{i}\t";
+                    text += $"(number - i):{(number - i)}\t";
+                    text += $"elapsed:{timer.Elapsed.TotalMilliseconds}\t";
+                    text += $"remaining:{timeLeft.TotalMilliseconds}\t";
 
                     ViewUpdates.UpdateStatusTextTime(dispatcher, controls, text);
 
