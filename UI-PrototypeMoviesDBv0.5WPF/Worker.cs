@@ -83,6 +83,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 UpdateStatusProgressBar();
                 UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
 
+                Task.Delay(1000);
+
                 i++;
                 #endregion
             }
