@@ -22,11 +22,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 if (state == State.running)
                 {
-                    #region Actually Working Area
+                    #region updates
                     var text = "00h:00m:00s (remaining: 00h:00m:00s)";
                     if (i > 0)
                     {
-                        var timeLeft = TimeSpan.FromMilliseconds((number - i) * 
+                        var timeLeft = TimeSpan.FromMilliseconds((number - i) *
                             ((int)timer.Elapsed.TotalMilliseconds / i));
                         text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
                             $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
@@ -37,7 +37,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     view.UpdateStatusTextTask($"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
                     view.UpdateStatusProgressBar();
                     view.UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
+                    #endregion
 
+                    #region work
                     i++;
                     #endregion
                 }
