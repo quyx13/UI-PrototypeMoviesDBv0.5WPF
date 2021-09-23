@@ -6,284 +6,230 @@ using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
-    public static class View
+    public class View
     {
-        public static void UpdateBtnStart(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, bool isEnabled)
-        {
-            var btnStart = (Button)controls["btnStart"];
+        private Dispatcher dis;
+        private MainWindow main;
 
-            dispatcher.BeginInvoke(new Action(() =>
+        public View(Dispatcher dis, MainWindow main)
+        {
+            this.dis = dis;
+            this.main = main;
+        }
+
+        public void UpdateBtnStart(bool isEnabled)
+        {
+            dis.BeginInvoke(new Action(() =>
             {
-                btnStart.IsEnabled = isEnabled;
+                main.btnStart.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnStartImg(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnStartImg(string text)
         {
-            var btnStartImg = (Image)controls["btnStartImg"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnStartImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnStartImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnStartTxt(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnStartTxt(string text)
         {
-            var btnStartTxt = (TextBlock)controls["btnStartTxt"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnStartTxt.Text = text;
+                main.btnStartTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnPause(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, bool isEnabled)
+        public void UpdateBtnPause(bool isEnabled)
         {
-            var btnPause = (Button)controls["btnPause"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnPause.IsEnabled = isEnabled;
+                main.btnPause.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnPauseImg(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnPauseImg(string text)
         {
-            var btnPauseImg = (Image)controls["btnPauseImg"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnPauseImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnPauseImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnPauseTxt(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnPauseTxt(string text)
         {
-            var btnPauseTxt = (TextBlock)controls["btnPauseTxt"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnPauseTxt.Text = text;
+                main.btnPauseTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnStop(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, bool isEnabled)
+        public void UpdateBtnStop(bool isEnabled)
         {
-            var btnStop = (Button)controls["btnStop"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnStop.IsEnabled = isEnabled;
+                main.btnStop.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnStopImg(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnStopImg(string text)
         {
-            var btnStopImg = (Image)controls["btnStopImg"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnStopImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnStopImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnStopTxt(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnStopTxt(string text)
         {
-            var btnStopTxt = (TextBlock)controls["btnStopTxt"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnStopTxt.Text = text;
+                main.btnStopTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnSettings(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, bool isEnabled)
+        public void UpdateBtnSettings(bool isEnabled)
         {
-            var btnSettings = (Button)controls["btnSettings"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnSettings.IsEnabled = isEnabled;
+                main.btnSettings.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnSettingsImg(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnSettingsImg(string text)
         {
-            var btnSettingsImg = (Image)controls["btnSettingsImg"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnSettingsImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnSettingsImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateBtnSettingsTxt(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateBtnSettingsTxt(string text)
         {
-            var btnSettingsTxt = (TextBlock)controls["btnSettingsTxt"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                btnSettingsTxt.Text = text;
+                main.btnSettingsTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateTextBox(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateTextBox(string text)
         {
-            var textBox = (TextBox)controls["textBox"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                textBox.AppendText(text + Environment.NewLine);
-                ScrollToEnd(textBox);
+                main.textBox.AppendText(text + Environment.NewLine);
             }), DispatcherPriority.Background);
         }
 
-        private static void ScrollToEnd(TextBox textBox)
+        public void ScrollToEnd()
         {
-            textBox.CaretIndex = textBox.Text.Length;
-            textBox.ScrollToEnd();
+            main.textBox.CaretIndex = main.textBox.Text.Length;
+            main.textBox.ScrollToEnd();
         }
 
-        public static void UpdateStatusTextTime(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateStatusTextTime(string text)
         {
-            var statusTextTime = (TextBlock)controls["statusTextTime"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                statusTextTime.Text = text;
+                main.statusTextTime.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateStatusTextTask(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateStatusTextTask(string text)
         {
-            var statusTextTask = (TextBlock)controls["statusTextTask"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                statusTextTask.Text = text;
+                main.statusTextTask.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void SetupStatusProgressBar(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, int min, int max, int value)
+        public void SetupStatusProgressBar(int min, int max, int value)
         {
-            var statusProgressBar = (ProgressBar)controls["statusProgressBar"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                statusProgressBar.Minimum = min;
-                statusProgressBar.Maximum = max;
-                statusProgressBar.Value = value;
+                main.statusProgressBar.Minimum = min;
+                main.statusProgressBar.Maximum = max;
+                main.statusProgressBar.Value = value;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateStatusProgressBar(Dispatcher dispatcher,
-            Dictionary<string, Object> controls)
+        public void UpdateStatusProgressBar()
         {
-            var statusProgressBar = (ProgressBar)controls["statusProgressBar"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                statusProgressBar.Value++;
+                main.statusProgressBar.Value++;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateStatusTextPercentage(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateStatusTextPercentage(string text)
         {
-            var statusTextPercentage = (TextBlock)controls["statusTextPercentage"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                statusTextPercentage.Text = text;
+                main.statusTextPercentage.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void UpdateStatusTextInfo(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, string text)
+        public void UpdateStatusTextInfo(string text)
         {
-            var statusTextInfo = (TextBlock)controls["statusTextInfo"];
-
-            dispatcher.BeginInvoke(new Action(() =>
+            dis.BeginInvoke(new Action(() =>
             {
-                statusTextInfo.Text = text;
+                main.statusTextInfo.Text = text;
             }), DispatcherPriority.Background);
         }
 
-        public static void SetStateReady(Dispatcher dispatcher,
-            Dictionary<string, Object> controls)
+        public void SetStateReady()
         {
-            UpdateStatusTextTime(dispatcher, controls, "00h:00m:00s (remaining: 00h:00m:00s)");
-            UpdateStatusTextTask(dispatcher, controls, "0 of 0");
-            SetupStatusProgressBar(dispatcher, controls, 0, 1, 0);
-            UpdateStatusTextPercentage(dispatcher, controls, "0%");
-            UpdateStatusTextInfo(dispatcher, controls, "Ready");
+            UpdateStatusTextTime("00h:00m:00s (remaining: 00h:00m:00s)");
+            UpdateStatusTextTask("0 of 0");
+            SetupStatusProgressBar(0, 1, 0);
+            UpdateStatusTextPercentage("0%");
+            UpdateStatusTextInfo("Ready");
         }
 
-        public static void SetStateRunning(Dispatcher dispatcher,
-            Dictionary<string, Object> controls, int number)
+        public void SetStateRunning(int number)
         {
-            UpdateBtnStart(dispatcher, controls, false);
-            UpdateBtnStartImg(dispatcher, controls, @"/res/play24gray.png");
-            UpdateBtnPause(dispatcher, controls, true);
-            UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24.png");
-            UpdateBtnStop(dispatcher, controls, true);
-            UpdateBtnStopImg(dispatcher, controls, @"/res/stop24.png");
-            UpdateBtnSettings(dispatcher, controls, false);
-            UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
-            SetupStatusProgressBar(dispatcher, controls, 0, number, 0);
-            UpdateStatusTextInfo(dispatcher, controls, "Running");
+            UpdateBtnStart(false);
+            UpdateBtnStartImg(@"/res/play24gray.png");
+            UpdateBtnPause(true);
+            UpdateBtnPauseImg(@"/res/pause24.png");
+            UpdateBtnStop(true);
+            UpdateBtnStopImg(@"/res/stop24.png");
+            UpdateBtnSettings(false);
+            UpdateBtnSettingsImg(@"/res/settings24gray.png");
+            SetupStatusProgressBar(0, number, 0);
+            UpdateStatusTextInfo("Running");
         }
 
-        public static void SetStatePaused(Dispatcher dispatcher,
-            Dictionary<string, Object> controls)
+        public void SetStatePaused()
         {
-            UpdateBtnStart(dispatcher, controls, true);
-            UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
-            UpdateBtnPause(dispatcher, controls, false);
-            UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
-            UpdateBtnStop(dispatcher, controls, true);
-            UpdateBtnStopImg(dispatcher, controls, @"/res/stop24.png");
-            UpdateBtnSettings(dispatcher, controls, false);
-            UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24gray.png");
-            UpdateStatusTextInfo(dispatcher, controls, "Paused");
+            UpdateBtnStart(true);
+            UpdateBtnStartImg(@"/res/play24.png");
+            UpdateBtnPause(false);
+            UpdateBtnPauseImg(@"/res/pause24gray.png");
+            UpdateBtnStop(true);
+            UpdateBtnStopImg(@"/res/stop24.png");
+            UpdateBtnSettings(false);
+            UpdateBtnSettingsImg(@"/res/settings24gray.png");
+            UpdateStatusTextInfo("Paused");
         }
 
-        public static void SetStateStopped(Dispatcher dispatcher,
-            Dictionary<string, Object> controls)
+        public void SetStateStopped()
         {
-            UpdateBtnStart(dispatcher, controls, true);
-            UpdateBtnStartImg(dispatcher, controls, @"/res/play24.png");
-            UpdateBtnPause(dispatcher, controls, false);
-            UpdateBtnPauseImg(dispatcher, controls, @"/res/pause24gray.png");
-            UpdateBtnStop(dispatcher, controls, false);
-            UpdateBtnStopImg(dispatcher, controls, @"/res/stop24gray.png");
-            UpdateBtnSettings(dispatcher, controls, true);
-            UpdateBtnSettingsImg(dispatcher, controls, @"/res/settings24.png");
-            UpdateStatusTextInfo(dispatcher, controls, "Stopped");
+            UpdateBtnStart(true);
+            UpdateBtnStartImg(@"/res/play24.png");
+            UpdateBtnPause(false);
+            UpdateBtnPauseImg(@"/res/pause24gray.png");
+            UpdateBtnStop(false);
+            UpdateBtnStopImg(@"/res/stop24gray.png");
+            UpdateBtnSettings(true);
+            UpdateBtnSettingsImg(@"/res/settings24.png");
+            UpdateStatusTextInfo("Stopped");
         }
 
-        public static void SetStateDone(Dispatcher dispatcher,
-            Dictionary<string, Object> controls)
+        public void SetStateDone()
         {
-            SetStateStopped(dispatcher, controls);
-            UpdateStatusTextInfo(dispatcher, controls, "Done");
+            SetStateStopped();
+            UpdateStatusTextInfo("Done");
         }
     }
 }
