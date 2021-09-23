@@ -58,6 +58,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 case State.ready:
                     worker.timer.Start();
+                    Trace.WriteLine($"started with: {worker.timer.ElapsedMilliseconds}");
                     worker.state = State.running;
                     work = Task.Factory.StartNew(() => worker.DoWork(number));
                     view.SetStateRunning(number);
@@ -65,6 +66,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.running:
                     break;
                 case State.paused:
+                    worker.timer.Stop();
+                    Trace.WriteLine($"stopped at: {worker.timer.ElapsedMilliseconds}");
                     worker.state = State.running;
                     view.SetStateRunning(number);
                     break;

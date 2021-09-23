@@ -16,8 +16,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void DoWork(int number)
         {
-            timer.Reset();
-
             for (int i = 0; i < number; )
             {
                 if (state == State.running)
@@ -26,8 +24,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     var text = "00h:00m:00s (remaining: 00h:00m:00s)";
                     if (i > 0)
                     {
-                        var timeLeft = TimeSpan.FromMilliseconds((number - i) * ((int)timer.Elapsed.TotalMilliseconds / i));
-                        text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s (remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
+                        var timeLeft = TimeSpan.FromMilliseconds((number - i) * 
+                            ((int)timer.Elapsed.TotalMilliseconds / i));
+                        text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
+                            $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
                     }
                     view.UpdateStatusTextTime(text);
                     view.UpdateTextBox($"{i}\t" + text);
@@ -39,8 +39,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     i++;
                     #endregion
                 }
-
-                Trace.WriteLine($"{timer.ElapsedMilliseconds}");
             }
 
             state = State.done;
