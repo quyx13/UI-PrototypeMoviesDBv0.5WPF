@@ -16,9 +16,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             view = new View(this.Dispatcher, this);
             worker = new Worker(view);
-
-            worker.state = State.ready;
-            view.SetStateReady();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -99,8 +96,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.stopped:
                     goto case State.done;
                 case State.done:
-                    worker.state = State.ready;
-                    view.SetStateReady();
+                    worker = new Worker(view);
                     break;
             }
         }
