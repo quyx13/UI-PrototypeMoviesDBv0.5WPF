@@ -55,7 +55,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             statusTextInfo = (TextBlock)controls["statusTextInfo"];
 
             state = State.ready;
-            ViewUpdates.SetStateReady(dispatcher, controls);
+            SetStateReady();
         }
 
         public void DoWork(int number)
@@ -70,11 +70,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 #region Actually Working Area
 
-                
-
                 if (i < 0)
                 {
-
                     //ViewUpdates.UpdateStatusTextTime(dispatcher, controls, 
                     //    $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s (remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)");
                     //Trace.WriteLine($"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s (remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)");
@@ -86,8 +83,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     text += $"remaining:{timeLeft.TotalMilliseconds}\t";
 
                     UpdateStatusTextTime(text);
-
-                    
                 }
 
                 UpdateTextBox(i.ToString());
@@ -104,6 +99,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             state = State.done;
             SetStateDone();
+        }
+
+        public void SetStateReady()
+        {
+            UpdateStatusTextTime("00h:00m:00s (remaining: 00h:00m:00s)");
+            UpdateStatusTextTask("0 of 0");
+            SetupStatusProgressBar(0, 1, 0);
+            UpdateStatusTextPercentage("0%");
+            UpdateStatusTextInfo("Ready");
         }
 
         public void SetStateRunning(int number)
