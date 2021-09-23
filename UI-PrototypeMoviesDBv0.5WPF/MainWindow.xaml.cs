@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -10,36 +8,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     {
         private Worker worker;
         private Task work;
-        private Dictionary<string, Object> controls;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            controls = new Dictionary<string, object>()
-            {
-                { "btnStart", btnStart },
-                { "btnStartImg", btnStartImg },
-                { "btnStartTxt", btnStartTxt },
-                { "btnPause", btnPause },
-                { "btnPauseImg", btnPauseImg },
-                { "btnPauseTxt", btnPauseTxt },
-                { "btnStop", btnStop },
-                { "btnStopImg", btnStopImg },
-                { "btnStopTxt", btnStopTxt },
-                { "btnSettings", btnSettings },
-                { "btnSettingsImg", btnSettingsImg },
-                { "btnSettingsTxt", btnSettingsTxt },
-                { "comboBox", comboBox },
-                { "textBox", textBox },
-                { "statusTextTime", statusTextTime },
-                { "statusTextTask", statusTextTask },
-                { "statusProgressBar", statusProgressBar },
-                { "statusTextPercentage", statusTextPercentage },
-                { "statusTextInfo", statusTextInfo },
-            };
-
-            worker = new Worker(this.Dispatcher, controls);
+            worker = new Worker(this.Dispatcher, this);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

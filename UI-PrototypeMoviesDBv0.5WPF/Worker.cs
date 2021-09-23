@@ -11,48 +11,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     {
         public State state;
         private Dispatcher dispatcher;
+        private MainWindow main;
 
-        private Button btnStart;
-        private Image btnStartImg;
-        private TextBlock btnStartTxt;
-        private Button btnPause;
-        private Image btnPauseImg;
-        private TextBlock btnPauseTxt;
-        private Button btnStop;
-        private Image btnStopImg;
-        private TextBlock btnStopTxt;
-        private Button btnSettings;
-        private Image btnSettingsImg;
-        private TextBlock btnSettingsTxt;
-        private TextBox textBox;
-        private TextBlock statusTextTime;
-        private TextBlock statusTextTask;
-        private ProgressBar statusProgressBar;
-        private TextBlock statusTextPercentage;
-        private TextBlock statusTextInfo;
-
-        public Worker(Dispatcher dispatcher, Dictionary<string, Object> controls)
+        public Worker(Dispatcher dispatcher, MainWindow main)
         {
             this.dispatcher = dispatcher;
-
-            btnStart = (Button)controls["btnStart"];
-            btnStartImg = (Image)controls["btnStartImg"];
-            btnStartTxt = (TextBlock)controls["btnStartTxt"];
-            btnPause = (Button)controls["btnPause"];
-            btnPauseImg = (Image)controls["btnPauseImg"];
-            btnPauseTxt = (TextBlock)controls["btnPauseTxt"];
-            btnStop = (Button)controls["btnStop"];
-            btnStopImg = (Image)controls["btnStopImg"];
-            btnStopTxt = (TextBlock)controls["btnStopTxt"];
-            btnSettings = (Button)controls["btnSettings"];
-            btnSettingsImg = (Image)controls["btnSettingsImg"];
-            btnSettingsTxt = (TextBlock)controls["btnSettingsTxt"];
-            textBox = (TextBox)controls["textBox"];
-            statusTextTime = (TextBlock)controls["statusTextTime"];
-            statusTextTask = (TextBlock)controls["statusTextTask"];
-            statusProgressBar = (ProgressBar)controls["statusProgressBar"];
-            statusTextPercentage = (TextBlock)controls["statusTextPercentage"];
-            statusTextInfo = (TextBlock)controls["statusTextInfo"];
+            this.main = main;
 
             state = State.ready;
             SetStateReady();
@@ -138,7 +102,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnStart.IsEnabled = isEnabled;
+                main.btnStart.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
@@ -146,7 +110,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnStartImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnStartImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
@@ -154,7 +118,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnStartTxt.Text = text;
+                main.btnStartTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -162,7 +126,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnPause.IsEnabled = isEnabled;
+                main.btnPause.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
@@ -170,7 +134,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnPauseImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnPauseImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
@@ -178,7 +142,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnPauseTxt.Text = text;
+                main.btnPauseTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -186,7 +150,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnStop.IsEnabled = isEnabled;
+                main.btnStop.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
@@ -194,7 +158,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnStopImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnStopImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
@@ -202,7 +166,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnStopTxt.Text = text;
+                main.btnStopTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -210,7 +174,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnSettings.IsEnabled = isEnabled;
+                main.btnSettings.IsEnabled = isEnabled;
             }), DispatcherPriority.Background);
         }
 
@@ -218,7 +182,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnSettingsImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
+                main.btnSettingsImg.Source = new BitmapImage(new Uri(text, UriKind.Relative));
             }), DispatcherPriority.Background);
         }
 
@@ -226,7 +190,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                btnSettingsTxt.Text = text;
+                main.btnSettingsTxt.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -234,9 +198,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                textBox.AppendText(text + Environment.NewLine);
-                textBox.CaretIndex = textBox.Text.Length;
-                textBox.ScrollToEnd();
+                main.textBox.AppendText(text + Environment.NewLine);
+                main.textBox.CaretIndex = main.textBox.Text.Length;
+                main.textBox.ScrollToEnd();
             }), DispatcherPriority.Background);
         }
 
@@ -244,7 +208,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                statusTextTime.Text = text;
+                main.statusTextTime.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -252,7 +216,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                statusTextTask.Text = text;
+                main.statusTextTask.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -260,9 +224,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                statusProgressBar.Minimum = min;
-                statusProgressBar.Maximum = max;
-                statusProgressBar.Value = value;
+                main.statusProgressBar.Minimum = min;
+                main.statusProgressBar.Maximum = max;
+                main.statusProgressBar.Value = value;
             }), DispatcherPriority.Background);
         }
 
@@ -270,7 +234,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                statusProgressBar.Value++;
+                main.statusProgressBar.Value++;
             }), DispatcherPriority.Background);
         }
 
@@ -278,7 +242,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                statusTextPercentage.Text = text;
+                main.statusTextPercentage.Text = text;
             }), DispatcherPriority.Background);
         }
 
@@ -286,7 +250,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             dispatcher.Invoke(new Action(() =>
             {
-                statusTextInfo.Text = text;
+                main.statusTextInfo.Text = text;
             }), DispatcherPriority.Background);
         }
     }
