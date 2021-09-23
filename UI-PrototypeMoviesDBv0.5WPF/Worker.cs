@@ -11,9 +11,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public Worker(View view)
         {
             this.view = view;
-
-            state = State.ready;
-            view.SetStateReady();
         }
 
         public void DoWork(int number)

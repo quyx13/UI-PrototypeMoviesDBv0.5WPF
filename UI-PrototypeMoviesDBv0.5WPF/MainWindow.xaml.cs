@@ -16,6 +16,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             view = new View(this.Dispatcher, this);
             worker = new Worker(view);
+
+            worker.state = State.ready;
+            view.SetStateReady();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
