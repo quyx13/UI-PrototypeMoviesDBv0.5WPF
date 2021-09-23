@@ -6,6 +6,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     public class Worker
     {
         public State state;
+        public Stopwatch timer = new Stopwatch();
         private View view;
 
         public Worker(View view)
@@ -15,8 +16,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void DoWork(int number)
         {
-            var timer = new Stopwatch();
-            timer.Start();
+            timer.Reset();
 
             for (int i = 0; i < number; )
             {
@@ -39,6 +39,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     i++;
                     #endregion
                 }
+
+                Trace.WriteLine($"{timer.ElapsedMilliseconds}");
             }
 
             state = State.done;
