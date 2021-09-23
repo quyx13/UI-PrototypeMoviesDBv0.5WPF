@@ -58,10 +58,13 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.running:
                     break;
                 case State.paused:
+                    worker.state = State.running;
                     break;
                 case State.stopped:
+                    // TODO:Reset&Neustart
                     break;
                 case State.done:
+                    // TODO:Reset&Neustart
                     break;
                 default:
                     break;
@@ -70,34 +73,23 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
-            worker.state = State.paused;
+            if (worker.state == State.running)
+            {
+                worker.state = State.paused;
+            }
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            worker.state = State.stopped;
+            if (worker.state == State.running)
+            {
+                worker.state = State.stopped;
+            }
         }
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             // TODO:Settings-Fenster
-
-            //Task.Factory.StartNew(() => DoWork(10));
         }
-
-        //private void DoWork(int number)
-        //{
-        //    for (int i = 1; i <= number; i++)
-        //    {
-        //        Dispatcher.BeginInvoke(new Action(() => 
-        //        { 
-        //            textBox.AppendText(i.ToString() + Environment.NewLine); 
-        //        }), DispatcherPriority.Background);
-
-        //        Thread.Sleep(1000);
-        //    }
-
-        //    Trace.WriteLine("Done");
-        //}
     }
 }

@@ -44,8 +44,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 #endregion
             }
 
-            Trace.WriteLine($"{timer.ElapsedMilliseconds}");
-
             state = State.done;
             view.SetStateDone();
         }
