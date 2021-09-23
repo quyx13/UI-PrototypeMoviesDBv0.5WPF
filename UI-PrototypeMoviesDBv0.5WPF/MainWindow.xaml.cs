@@ -73,6 +73,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            var timer = new Stopwatch();
+            timer.Start();
+
+            Trace.WriteLine("Start...");
+
             switch(worker.state)
             {
                 case State.ready:
@@ -90,6 +95,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 default:
                     break;
             }
+
+            Trace.WriteLine($"...Finish ({timer.ElapsedMilliseconds.ToString()} ms)");
         }
 
         private void btnPause_Click(object sender, RoutedEventArgs e)
