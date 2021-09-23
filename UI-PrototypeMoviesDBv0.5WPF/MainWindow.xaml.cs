@@ -6,8 +6,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public partial class MainWindow : Window
     {
-        private Worker worker;
         private View view;
+        private Worker worker;
         private Task work;
 
         public MainWindow()
