@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
@@ -83,8 +81,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 UpdateStatusTextTask($"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
                 UpdateStatusProgressBar();
                 UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
-
-                Thread.Sleep(1000);
 
                 i++;
                 #endregion
