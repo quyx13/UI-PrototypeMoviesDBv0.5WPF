@@ -179,6 +179,13 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateReady()
         {
+            UpdateBtnStart(true);
+            UpdateBtnStartImg(@"/res/play24.png");
+            UpdateBtnPause(false);
+            UpdateBtnPauseImg(@"/res/pause24gray.png");
+            UpdateBtnStop(false);
+            UpdateBtnStopImg(@"/res/stop24gray.png");
+            main.textBox.Clear();
             UpdateStatusTextTime("00h:00m:00s (remaining: 00h:00m:00s)");
             UpdateStatusTextTask("0 of 0");
             SetupStatusProgressBar(0, 1, 0);

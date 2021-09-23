@@ -46,7 +46,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }
 
             state = State.done;
-            view.UpdateStatusTextInfo("Done");
+            view.SetStateDone();
         }
     }
 }

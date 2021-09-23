@@ -87,11 +87,21 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            if (worker.state == State.running || worker.state == State.paused)
+            switch (worker.state)
             {
-                worker.timer.Stop();
-                worker.state = State.stopped;
-                view.SetStateStopped();
+                case State.running:
+                    goto case State.paused;
+                case State.paused:
+                    worker.timer.Stop();
+                    worker.state = State.stopped;
+                    view.SetStateStopped();
+                    break;
+                case State.stopped:
+                    goto case State.done;
+                case State.done:
+                    worker.state = State.ready;
+                    view.SetStateReady();
+                    break;
             }
         }
 
