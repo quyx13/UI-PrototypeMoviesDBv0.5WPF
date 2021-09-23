@@ -12,12 +12,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private Dispatcher dis;
         private MainWindow main;
 
-        public Worker(Dispatcher dis, MainWindow main)
+        public Worker(Dispatcher dis, MainWindow main, View view)
         {
             this.dis = dis;
             this.main = main;
-
-            view = new View(dis, main);
+            this.view = view;
 
             state = State.ready;
             view.SetStateReady();

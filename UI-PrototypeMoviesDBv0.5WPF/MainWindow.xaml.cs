@@ -7,13 +7,15 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     public partial class MainWindow : Window
     {
         private Worker worker;
+        private View view;
         private Task work;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            worker = new Worker(this.Dispatcher, this);
+            view = new View(this.Dispatcher, this);
+            worker = new Worker(this.Dispatcher, this, view);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
