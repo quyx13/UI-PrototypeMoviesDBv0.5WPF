@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Windows.Media.Imaging;
-using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
