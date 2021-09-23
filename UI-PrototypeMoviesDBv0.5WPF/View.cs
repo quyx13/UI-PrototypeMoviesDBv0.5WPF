@@ -185,6 +185,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnPauseImg(@"/res/pause24gray.png");
             UpdateBtnStop(false);
             UpdateBtnStopImg(@"/res/stop24gray.png");
+            UpdateBtnSettings(true);
+            UpdateBtnSettingsImg(@"/res/settings24.png");
             main.textBox.Clear();
             UpdateStatusTextTime("00h:00m:00s (remaining: 00h:00m:00s)");
             UpdateStatusTextTask("0 of 0");
