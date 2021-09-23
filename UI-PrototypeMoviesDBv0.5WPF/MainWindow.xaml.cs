@@ -52,7 +52,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            var number = 5200;
+            var number = 520;
 
             switch(worker.state)
             {

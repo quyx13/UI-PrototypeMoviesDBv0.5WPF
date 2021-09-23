@@ -224,5 +224,18 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnSettingsImg(@"/res/settings24.png");
             UpdateStatusTextInfo("Stopped");
         }
+
+        public void SetStateDone()
+        {
+            UpdateBtnStart(false);
+            UpdateBtnStartImg(@"/res/play24gray.png");
+            UpdateBtnPause(false);
+            UpdateBtnPauseImg(@"/res/pause24gray.png");
+            UpdateBtnStop(true);
+            UpdateBtnStopImg(@"/res/stop24.png");
+            UpdateBtnSettings(false);
+            UpdateBtnSettingsImg(@"/res/settings24gray.png");
+            UpdateStatusTextInfo("Done");
+        }
     }
 }
