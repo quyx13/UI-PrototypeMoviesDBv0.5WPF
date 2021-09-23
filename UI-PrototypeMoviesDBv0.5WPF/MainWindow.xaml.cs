@@ -83,6 +83,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             if (worker.state == State.running)
             {
                 worker.state = State.paused;
+                view.SetStatePaused();
             }
         }
 
@@ -91,6 +92,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             if (worker.state == State.running)
             {
                 worker.state = State.stopped;
+                view.SetStateStopped();
             }
         }
 
