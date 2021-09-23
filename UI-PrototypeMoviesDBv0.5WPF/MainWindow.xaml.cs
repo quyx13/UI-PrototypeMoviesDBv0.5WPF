@@ -66,7 +66,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.running:
                     break;
                 case State.paused:
-                    worker.timer.Stop();
+                    worker.timer.Start();
                     Trace.WriteLine($"restarted with: {worker.timer.ElapsedMilliseconds}");
                     worker.state = State.running;
                     view.SetStateRunning(number);
