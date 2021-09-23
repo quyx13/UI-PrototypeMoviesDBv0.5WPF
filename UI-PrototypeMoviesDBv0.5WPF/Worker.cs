@@ -39,10 +39,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     i++;
                     #endregion
                 }
+                if (state == State.stopped)
+                {
+                    break;
+                }
             }
 
             state = State.done;
-            view.SetStateDone();
+            view.UpdateStatusTextInfo("Done");
         }
     }
 }
