@@ -116,6 +116,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             dis.Invoke(new Action(() =>
             {
                 main.textBox.AppendText(text + Environment.NewLine);
+                main.textBox.ScrollToEnd();
             }), DispatcherPriority.Background);
         }
 
