@@ -56,13 +56,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
             switch(worker.state)
             {
-                case State.ready:
-                    worker.timer.Start();
-                    Trace.WriteLine($"started with: {worker.timer.ElapsedMilliseconds}");
-                    worker.state = State.running;
-                    work = Task.Factory.StartNew(() => worker.DoWork(number));
-                    view.SetStateRunning(number);
-                    break;
                 case State.running:
                     break;
                 case State.paused:
@@ -72,10 +65,13 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     view.SetStateRunning(number);
                     break;
                 case State.stopped:
-                    // TODO:Reset&Neustart
-                    break;
                 case State.done:
-                    // TODO:Reset&Neustart
+                case State.ready:
+                    worker.timer.Restart();
+                    Trace.WriteLine($"started with: {worker.timer.ElapsedMilliseconds}");
+                    worker.state = State.running;
+                    work = Task.Factory.StartNew(() => worker.DoWork(number));
+                    view.SetStateRunning(number);
                     break;
                 default:
                     break;
