@@ -98,5 +98,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             // TODO:Settings-Fenster
         }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 1000;)
+            {
+                view.UpdateTextBox($"{i}");
+                i++;
+            }
+        }
     }
 }

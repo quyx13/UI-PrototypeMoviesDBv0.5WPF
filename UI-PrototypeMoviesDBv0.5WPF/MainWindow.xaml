@@ -37,6 +37,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
@@ -84,7 +85,9 @@
                     <TextBlock x:Name="btnSettingsTxt" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,3,0">Settings</TextBlock>
                 </Grid>
             </Button>
-            <ComboBox x:Name="comboBox" Grid.Column="5" Margin="3,3,3,3" Height="23"/>
+            <Button x:Name="btnTest" Grid.Column="4" Margin="3,3,0,0" Content="Test" Width="25" Click="btnTest_Click">
+            </Button>
+            <ComboBox x:Name="comboBox" Grid.Column="6" Margin="3,3,3,3" Height="23"/>
         </Grid>
         <GroupBox Grid.Row="2" Margin="3,-4,3,3">
             <GroupBox.Header>
