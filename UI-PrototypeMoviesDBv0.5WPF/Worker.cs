@@ -28,7 +28,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 }
                 if (state == State.stopped)
                 {
-                    break;
+                    return;
                 }
             }
 

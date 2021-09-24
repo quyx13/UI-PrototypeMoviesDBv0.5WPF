@@ -81,8 +81,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             switch (worker.state)
             {
                 case State.running:
+                    worker.timer.Stop();
                     goto case State.paused;
-                // BUG:!
                 case State.paused:
                     worker.state = State.stopped;
                     view.SetStateStopped();

@@ -248,14 +248,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public void SetStateStopped()
         {
             System.Diagnostics.Trace.WriteLine("Stopped");
-            UpdateBtnStart(true);
-            UpdateBtnStartImg(@"/res/play24.png");
+            UpdateBtnStart(false);
+            UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(false);
             UpdateBtnPauseImg(@"/res/pause24gray.png");
-            UpdateBtnStop(false);
-            UpdateBtnStopImg(@"/res/stop24gray.png");
-            UpdateBtnSettings(true);
-            UpdateBtnSettingsImg(@"/res/settings24.png");
+            UpdateBtnStop(true);
+            UpdateBtnStopImg(@"/res/stop24.png");
+            UpdateBtnSettings(false);
+            UpdateBtnSettingsImg(@"/res/settings24gray.png");
             UpdateStatusTextInfo("Stopped");
         }
 
