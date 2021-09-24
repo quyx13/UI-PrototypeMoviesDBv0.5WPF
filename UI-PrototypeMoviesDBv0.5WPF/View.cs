@@ -258,7 +258,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnSettingsImg(@"/res/settings24.png");
             UpdateStatusTextInfo("Stopped");
         }
-        
+
         public void SetStateDone()
         {
             System.Diagnostics.Trace.WriteLine("Done");
