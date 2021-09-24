@@ -200,7 +200,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateReady()
         {
-            System.Diagnostics.Trace.WriteLine("Ready");
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -219,7 +218,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateRunning()
         {
-            System.Diagnostics.Trace.WriteLine("Running");
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(true);
@@ -233,7 +231,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStatePaused()
         {
-            System.Diagnostics.Trace.WriteLine("Paused");
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -247,7 +244,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateStopped()
         {
-            System.Diagnostics.Trace.WriteLine("Stopped");
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(false);
@@ -261,7 +257,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateDone()
         {
-            System.Diagnostics.Trace.WriteLine("Done");
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(false);
