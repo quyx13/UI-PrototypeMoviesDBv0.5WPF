@@ -15,6 +15,24 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             this.main = main;
         }
 
+        public void UpdateUi(TimeSpan timeSpan, int i, int number)
+        {
+            var text = "00h:00m:00s (remaining: 00h:00m:00s)";
+            if (i > 0)
+            {
+                var timeLeft = TimeSpan.FromMilliseconds((number - i) *
+                    ((int)timeSpan.TotalMilliseconds / i));
+                text = $"{timeSpan.Hours:D2}h:{timeSpan.Minutes:D2}m:{timeSpan.Seconds:D2}s " +
+                    $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
+            }
+            UpdateStatusTextTime(text);
+            UpdateTextBox($"{i}\t" + text);
+            ScrollToEnd();
+            UpdateStatusTextTask($"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
+            UpdateStatusProgressBar();
+            UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
+        }
+
         public void UpdateBtnStart(bool isEnabled)
         {
             dis.Invoke(new Action(() =>
