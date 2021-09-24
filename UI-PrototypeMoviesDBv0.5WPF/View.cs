@@ -18,6 +18,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public void UpdateUi(TimeSpan timeSpan, int i, int number)
         {
             var text = "00h:00m:00s (remaining: 00h:00m:00s)";
+
             if (i > 0)
             {
                 var timeLeft = TimeSpan.FromMilliseconds((number - i) *
@@ -25,9 +26,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 text = $"{timeSpan.Hours:D2}h:{timeSpan.Minutes:D2}m:{timeSpan.Seconds:D2}s " +
                     $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
             }
+
             UpdateStatusTextTime(text);
             UpdateTextBox($"{i}\t" + text);
             ScrollToEnd();
+
             UpdateStatusTextTask($"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
             UpdateStatusProgressBar();
             UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
@@ -197,6 +200,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateReady()
         {
+            System.Diagnostics.Trace.WriteLine("Ready");
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -215,6 +219,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateRunning()
         {
+            System.Diagnostics.Trace.WriteLine("Running");
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(true);
@@ -228,6 +233,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStatePaused()
         {
+            System.Diagnostics.Trace.WriteLine("Paused");
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -241,6 +247,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateStopped()
         {
+            System.Diagnostics.Trace.WriteLine("Stopped");
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -254,6 +261,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         
         public void SetStateDone()
         {
+            System.Diagnostics.Trace.WriteLine("Done");
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(false);
