@@ -44,7 +44,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             var number = 5200;
 
-            switch(worker.state)
+            switch (worker.state)
             {
                 case State.ready:
                     view.SetupStatusProgressBar(0, number, 0);
@@ -104,13 +104,18 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
+            DoTest();
+        }
+
+        private void DoTest()
+        {
             for (int i = 0; i < 1000;)
             {
                 this.Dispatcher.Invoke(new Action(() =>
                 {
                     this.Title = $"UI-PrototypeMoviesDBv0.5WPF [{i}]";
-                    Thread.Sleep(16);
                 }), DispatcherPriority.Background);
+                Thread.Sleep(16);
                 i++;
             }
         }

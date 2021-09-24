@@ -17,7 +17,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void DoWork(int number)
         {
-            for (int i = 0; i < number; )
+            for (int i = 0; i < number;)
             {
                 if (state == State.running)
                 {
