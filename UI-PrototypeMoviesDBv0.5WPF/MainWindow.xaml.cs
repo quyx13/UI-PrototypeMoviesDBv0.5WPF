@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
@@ -103,7 +106,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             for (int i = 0; i < 1000;)
             {
-                view.UpdateTextBox($"{i}");
+                this.Dispatcher.Invoke(new Action(() =>
+                {
+                    this.Title = $"UI-PrototypeMoviesDBv0.5WPF [{i}]";
+                    Thread.Sleep(16);
+                }), DispatcherPriority.Background);
                 i++;
             }
         }
