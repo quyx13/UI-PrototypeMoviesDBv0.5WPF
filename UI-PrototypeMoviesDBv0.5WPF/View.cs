@@ -42,10 +42,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                 for (int i = 0; i < updates.Count; i++)
                 {
-                    output += $"{updates[updates[i].Item1].Item1}\t" + text + Environment.NewLine;
-                    UpdateTextBox();
-                    ScrollToEnd();
+                    output += $"{updates[i].Item1}\t" + text + Environment.NewLine;
                 }
+
+                UpdateTextBox();
+                ScrollToEnd();
 
                 UpdateStatusTextTime(text);
                 UpdateStatusProgressBar(updates[updates.Count - 1].Item1 + 1);
