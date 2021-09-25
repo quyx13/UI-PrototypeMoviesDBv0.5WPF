@@ -13,6 +13,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private List<Tuple<int, int>> updates = new List<Tuple<int, int>>();
 
         public Stopwatch timer = new Stopwatch();
+        public string output = string.Empty;
 
         public View(Dispatcher dis, MainWindow main)
         {
@@ -27,25 +28,22 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateUi()
         {
-            
-
             if (updates.Count > 0)
             {
-                Trace.WriteLine(updates.Count);
-
                 var text = "00h:00m:00s (remaining: 00h:00m:00s)";
 
                 if (updates[updates.Count - 1].Item1 > 0)
                 {
-                    var timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) *
-                        ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
-                    text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
-                        $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
+                    //var timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) *
+                    //    ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
+                    //text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
+                    //    $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
                 }
 
                 for (int i = 0; i < updates.Count; i++)
                 {
-                    UpdateTextBox($"{updates[i].Item1}\t" + text);
+                    output += $"{updates[updates[i].Item1].Item1}\t" + text + Environment.NewLine;
+                    UpdateTextBox();
                     ScrollToEnd();
                 }
 
@@ -184,6 +182,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             dis.Invoke(new Action(() =>
             {
                 main.btnSettingsTxt.Text = text;
+            }), DispatcherPriority.Background);
+        }
+
+        public void UpdateTextBox()
+        {
+            dis.Invoke(new Action(() =>
+            {
+                main.textBox.Text = output;
             }), DispatcherPriority.Background);
         }
 
