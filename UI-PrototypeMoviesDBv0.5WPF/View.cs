@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -9,7 +10,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     {
         private Dispatcher dis;
         private MainWindow main;
-        private Queue updates = new Queue();
+        private List<Tuple<int, int>> updates = new List<Tuple<int, int>>();
+        
+        public Stopwatch timer = new Stopwatch();
 
         public View(Dispatcher dis, MainWindow main)
         {
@@ -17,9 +20,22 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             this.main = main;
         }
 
-        public void AddUpdate(TimeSpan timeSpan, int i, int number)
+        public void AddUpdate(int item, int number)
         {
-            updates.Enqueue(new Update(timeSpan, i, number));
+            updates.Add(new Tuple<int, int>(item, number));
+        }
+
+        public void UpdateUi()
+        {
+            if (updates.Count > 0)
+            {
+                for (int i = 0; i < updates.Count; i++)
+                {
+
+                }
+            }
+            
+            UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");
         }
 
         public void UpdateUi(TimeSpan timeSpan, int i, int number)

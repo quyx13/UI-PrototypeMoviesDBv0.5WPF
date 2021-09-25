@@ -1,11 +1,8 @@
-﻿using System.Diagnostics;
-
-namespace UI_PrototypeMoviesDBv0._5WPF
+﻿namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public class Worker
     {
         public State state;
-        public Stopwatch timer = new Stopwatch();
         private View view;
 
         public Worker(View view)
@@ -22,7 +19,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 if (state == State.running)
                 {
                     #region work
-                    view.UpdateUi(timer.Elapsed, i, number);
+                    view.AddUpdate(i, number);
                     i++;
                     #endregion
                 }

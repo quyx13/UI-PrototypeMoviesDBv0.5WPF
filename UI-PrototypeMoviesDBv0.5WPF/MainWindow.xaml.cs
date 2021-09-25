@@ -23,7 +23,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(17);
+            timer.Interval = TimeSpan.FromMilliseconds(16);
             timer.Tick += timer_Tick;
             timer.Start();
         }
@@ -57,14 +57,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.done:
                     if (work == null || work.Status == TaskStatus.RanToCompletion)
                     {
-                        worker.timer.Restart();
+                        view.timer.Restart();
                         worker.state = State.running;
                         work = Task.Factory.StartNew(() => worker.DoWork(number));
                         view.SetStateRunning();
                     }
                     break;
                 case State.paused:
-                    worker.timer.Start();
+                    view.timer.Start();
                     worker.state = State.running;
                     view.SetStateRunning();
                     break;
@@ -75,7 +75,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             if (worker.state == State.running)
             {
-                worker.timer.Stop();
+                view.timer.Stop();
                 worker.state = State.paused;
                 view.SetStatePaused();
             }
@@ -86,7 +86,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             switch (worker.state)
             {
                 case State.running:
-                    worker.timer.Stop();
+                    view.timer.Stop();
                     goto case State.paused;
                 case State.paused:
                     worker.state = State.stopped;
@@ -125,7 +125,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         void timer_Tick(object sender, EventArgs e)
         {
-            view.UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");
+            view.UpdateUi();
         }
     }
 }
