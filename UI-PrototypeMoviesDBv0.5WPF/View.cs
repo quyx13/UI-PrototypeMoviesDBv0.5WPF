@@ -45,7 +45,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                 for (int i = 0; i < updates.Count; i++)
                 {
-                    UpdateTextBox($"{updates[updates.Count - 1].Item1}\t" + text);
+                    UpdateTextBox($"{updates[i].Item1}\t" + text);
                     ScrollToEnd();
                 }
 
