@@ -27,8 +27,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateUi()
         {
+            
+
             if (updates.Count > 0)
             {
+                Trace.WriteLine(updates.Count);
+
                 var text = "00h:00m:00s (remaining: 00h:00m:00s)";
 
                 if (updates[updates.Count - 1].Item1 > 0)
