@@ -31,8 +31,12 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             {
                 for (int i = 0; i < updates.Count; i++)
                 {
-
+                    
                 }
+
+                
+                UpdateStatusTextTask($"{string.Format("{0:0,0}", (updates[updates.Count - 1].Item1 + 1))} " +
+                    $"of {string.Format("{0:0,0}", (updates[updates.Count - 1].Item2))}");
             }
 
             UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");

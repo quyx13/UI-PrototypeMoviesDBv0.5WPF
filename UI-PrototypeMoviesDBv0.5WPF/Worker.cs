@@ -1,4 +1,6 @@
-﻿namespace UI_PrototypeMoviesDBv0._5WPF
+﻿using System.Threading;
+
+namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public class Worker
     {
@@ -20,6 +22,7 @@
                 {
                     #region work
                     view.AddUpdate(i, number);
+                    Thread.Sleep(100);
                     i++;
                     #endregion
                 }
