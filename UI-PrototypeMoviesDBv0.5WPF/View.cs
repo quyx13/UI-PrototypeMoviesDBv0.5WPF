@@ -262,7 +262,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateReady()
         {
-            timer = new Stopwatch();
+            timer.Reset();
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -281,7 +281,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateRunning()
         {
-            timer.Restart();
+            timer.Start();
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(true);

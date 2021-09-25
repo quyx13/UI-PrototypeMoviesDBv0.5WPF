@@ -63,7 +63,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     }
                     break;
                 case State.paused:
-                    view.timer.Start();
                     worker.state = State.running;
                     view.SetStateRunning();
                     break;
