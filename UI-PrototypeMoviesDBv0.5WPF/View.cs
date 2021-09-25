@@ -29,14 +29,30 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             if (updates.Count > 0)
             {
-                for (int i = 0; i < updates.Count; i++)
+                var text = "00h:00m:00s (remaining: 00h:00m:00s)";
+
+                if (updates[updates.Count - 1].Item1 > 0)
                 {
-                    
+                    var timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) *
+                        ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
+                    text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
+                        $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
                 }
 
-                
+                for (int i = 0; i < updates.Count; i++)
+                {
+                    UpdateTextBox($"{updates[updates.Count - 1].Item1}\t" + text);
+                    ScrollToEnd();
+                }
+
+                UpdateStatusTextTime(text);
+                UpdateStatusProgressBar(updates[updates.Count - 1].Item1 + 1);
                 UpdateStatusTextTask($"{string.Format("{0:0,0}", (updates[updates.Count - 1].Item1 + 1))} " +
                     $"of {string.Format("{0:0,0}", (updates[updates.Count - 1].Item2))}");
+                UpdateStatusTextPercentage(
+                    $"{((updates[updates.Count - 1].Item1 + 1) / (double)updates[updates.Count - 1].Item2 * 100):F2}%");
+
+                updates.Clear();
             }
 
             UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");
