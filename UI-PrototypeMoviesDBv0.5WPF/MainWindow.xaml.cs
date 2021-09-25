@@ -45,7 +45,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            var number = 100;
+            var number = 5200;
 
             switch (worker.state)
             {
@@ -59,9 +59,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     {
                         view.timer.Restart();
                         worker.state = State.running;
-                        //work = Task.Factory.StartNew(() => worker.DoWork(number));
-                        work = Task.Factory.StartNew(() => worker.DoWork5200());
-                        //work = Task.Factory.StartNew(() => worker.DoWork3s());
+                        work = Task.Factory.StartNew(() => worker.DoWork(number));
+                        //work = Task.Factory.StartNew(() => worker.DoWork3s(number));
                         view.SetStateRunning();
                     }
                     break;

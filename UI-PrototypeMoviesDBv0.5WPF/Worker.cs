@@ -35,37 +35,16 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             view.SetStateDone();
         }
 
-        public void DoWork3s()
+        public void DoWork3s(int number)
         {
-            for (int i = 0; i < 20;)
+            for (int i = 0; i < number;)
             {
                 if (state == State.running)
                 {
                     #region work
-                    view.AddUpdate(i, 20);
+                    view.AddUpdate(i, number);
                     i++;
                     Thread.Sleep(3000);
-                    #endregion
-                }
-                if (state == State.stopped)
-                {
-                    return;
-                }
-            }
-
-            state = State.done;
-            view.SetStateDone();
-        }
-
-        public void DoWork5200()
-        {
-            for (int i = 0; i < 5200;)
-            {
-                if (state == State.running)
-                {
-                    #region work
-                    view.AddUpdate(i, 5200);
-                    i++;
                     #endregion
                 }
                 if (state == State.stopped)
