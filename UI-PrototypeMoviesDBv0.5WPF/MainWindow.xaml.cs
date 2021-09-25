@@ -22,7 +22,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromMilliseconds(17);
+            timer.Tick += timer_Tick;
+            timer.Start();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -118,6 +121,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 Thread.Sleep(16);
                 i++;
             }
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            view.UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");
         }
     }
 }

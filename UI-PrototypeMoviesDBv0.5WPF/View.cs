@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -8,11 +9,17 @@ namespace UI_PrototypeMoviesDBv0._5WPF
     {
         private Dispatcher dis;
         private MainWindow main;
+        private Queue updates = new Queue();
 
         public View(Dispatcher dis, MainWindow main)
         {
             this.dis = dis;
             this.main = main;
+        }
+
+        public void AddUpdate(TimeSpan timeSpan, int i, int number)
+        {
+            updates.Enqueue(new Update(timeSpan, i, number));
         }
 
         public void UpdateUi(TimeSpan timeSpan, int i, int number)
@@ -34,6 +41,14 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateStatusTextTask($"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
             UpdateStatusProgressBar();
             UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
+        }
+
+        public void UpdateWindowTitle(string text)
+        {
+            dis.Invoke(new Action(() =>
+            {
+                main.Title = text;
+            }), DispatcherPriority.Background);
         }
 
         public void UpdateBtnStart(bool isEnabled)
