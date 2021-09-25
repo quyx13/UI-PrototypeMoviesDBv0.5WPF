@@ -333,7 +333,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnStopImg(@"/res/stop24.png");
             UpdateBtnSettings(false);
             UpdateBtnSettingsImg(@"/res/settings24gray.png");
-            UpdateStatusTextInfo("Done");            
+            UpdateStatusTextInfo("Done");
         }
     }
 }
