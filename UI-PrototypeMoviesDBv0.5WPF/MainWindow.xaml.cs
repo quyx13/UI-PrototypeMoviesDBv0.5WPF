@@ -57,7 +57,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 case State.done:
                     if (work == null || work.Status == TaskStatus.RanToCompletion)
                     {
-                        view.timer.Restart();
                         worker.state = State.running;
                         work = Task.Factory.StartNew(() => worker.DoWork(number));
                         view.SetStateRunning();
@@ -75,7 +74,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             if (worker.state == State.running)
             {
-                view.timer.Stop();
                 worker.state = State.paused;
                 view.SetStatePaused();
             }
@@ -86,7 +84,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             switch (worker.state)
             {
                 case State.running:
-                    view.timer.Stop();
                     goto case State.paused;
                 case State.paused:
                     worker.state = State.stopped;

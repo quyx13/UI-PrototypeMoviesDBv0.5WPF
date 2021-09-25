@@ -262,6 +262,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateReady()
         {
+            timer = new Stopwatch();
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -280,6 +281,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateRunning()
         {
+            timer.Restart();
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(true);
@@ -293,6 +295,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStatePaused()
         {
+            timer.Stop();
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
@@ -306,6 +309,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateStopped()
         {
+            timer.Stop();
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(false);
@@ -319,6 +323,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void SetStateDone()
         {
+            timer.Stop();
             UpdateBtnStart(false);
             UpdateBtnStartImg(@"/res/play24gray.png");
             UpdateBtnPause(false);
@@ -327,7 +332,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             UpdateBtnStopImg(@"/res/stop24.png");
             UpdateBtnSettings(false);
             UpdateBtnSettingsImg(@"/res/settings24gray.png");
-            UpdateStatusTextInfo("Done");
+            UpdateStatusTextInfo("Done");            
         }
     }
 }
