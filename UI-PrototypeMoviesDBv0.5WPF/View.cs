@@ -11,7 +11,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private Dispatcher dis;
         private MainWindow main;
         private List<Tuple<int, int>> updates = new List<Tuple<int, int>>();
-        
+
         public Stopwatch timer = new Stopwatch();
 
         public View(Dispatcher dis, MainWindow main)
@@ -34,7 +34,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
                 }
             }
-            
+
             UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");
         }
 
@@ -55,7 +55,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             ScrollToEnd();
 
             UpdateStatusTextTask($"{string.Format("{0:0,0}", (i + 1))} of {string.Format("{0:0,0}", (number))}");
-            UpdateStatusProgressBar();
+            UpdateStatusProgressBar(i + 1);
             UpdateStatusTextPercentage($"{((i + 1) / (double)number * 100):F2}%");
         }
 
@@ -205,11 +205,11 @@ namespace UI_PrototypeMoviesDBv0._5WPF
             }), DispatcherPriority.Background);
         }
 
-        public void UpdateStatusProgressBar()
+        public void UpdateStatusProgressBar(int value)
         {
             dis.Invoke(new Action(() =>
             {
-                main.statusProgressBar.Value++;
+                main.statusProgressBar.Value = value;
             }), DispatcherPriority.Background);
         }
 
