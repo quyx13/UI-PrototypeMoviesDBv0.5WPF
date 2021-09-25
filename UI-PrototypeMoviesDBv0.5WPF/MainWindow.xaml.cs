@@ -23,7 +23,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(16);
+            timer.Interval = TimeSpan.FromMilliseconds(/*16*/100);
             timer.Tick += timer_Tick;
             timer.Start();
         }
