@@ -12,6 +12,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private MainWindow main;
         private List<Tuple<int, int>> updates = new List<Tuple<int, int>>();
 
+        private string textRemain = "00h:00m:00s";
+        private TimeSpan timeLeft = new TimeSpan();
+
         public Stopwatch timer = new Stopwatch();
         public string output = string.Empty;
 
@@ -28,17 +31,13 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateUi()
         {
-            var textElapsed = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s";
-            var textRemain = "00h:00m:00s";
-
             if (updates.Count > 0)
             {
                 if (updates[updates.Count - 1].Item1 > 0)
                 {
                     try
                     {
-                        var timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) * ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
-                        textRemain = $"{timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s";
+                        timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) * ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
                     }
                     catch (Exception ex)
                     {
@@ -55,8 +54,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 updates.Clear();
             }
 
-            var text = $"{textElapsed} (remaining: {textRemain})";
-            UpdateStatusTextTime(text);
+            textRemain = $"{timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s";
+            var textElapsed = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s";
+            var textTime = $"{textElapsed} (remaining: {textRemain})";
+            UpdateStatusTextTime(textTime);
             UpdateWindowTitle($"UI-PrototypeMoviesDBv0.5WPF [{DateTime.Now.ToString("HH:mm:ss")}]");
         }
 
