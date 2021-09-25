@@ -60,7 +60,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                         view.timer.Restart();
                         worker.state = State.running;
                         work = Task.Factory.StartNew(() => worker.DoWork(number));
-                        //work = Task.Factory.StartNew(() => worker.DoWork3s(number));
                         view.SetStateRunning();
                     }
                     break;
