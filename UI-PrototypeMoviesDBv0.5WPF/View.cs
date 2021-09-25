@@ -12,9 +12,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         private MainWindow main;
         private List<Tuple<int, int>> updates = new List<Tuple<int, int>>();
 
-        private int debug = 0;
-        private int debug2 = 0;
-
         public Stopwatch timer = new Stopwatch();
         public string output = string.Empty;
 
@@ -31,32 +28,24 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 
         public void UpdateUi()
         {
-            debug++;
-            debug2 += updates.Count;
-
             if (updates.Count > 0)
             {
                 var textElapsed = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s";
                 var textRemain = "00h:00m:00s";
-                var text = $"{textElapsed} (remaining: {textRemain})";
-
-                //var text = "00h:00m:00s (remaining: 00h:00m:00s)";
 
                 if (updates[updates.Count - 1].Item1 > 0)
                 {
-                    //var timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) *
-                    //    ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
-                    //text = $"{timer.Elapsed.Hours:D2}h:{timer.Elapsed.Minutes:D2}m:{timer.Elapsed.Seconds:D2}s " +
-                    //    $"(remaining: {timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s)";
+                    try
+                    {
+                        var timeLeft = TimeSpan.FromMilliseconds((updates[updates.Count - 1].Item2 - updates[updates.Count - 1].Item1) * ((int)timer.Elapsed.TotalMilliseconds / updates[updates.Count - 1].Item1));
+                        textRemain = $"{timeLeft.Hours:D2}h:{timeLeft.Minutes:D2}m:{timeLeft.Seconds:D2}s";
+                    }
+                    catch (Exception ex)
+                    {
+                        Trace.WriteLine(ex);
+                    }
                 }
-
-                //for (int i = 0; i < updates.Count; i++)
-                //{
-                //    output += $"{debug}\t{debug2}\t{updates[i].Item1}\t" + text + Environment.NewLine;
-                //}
-
-                UpdateTextBox();
-                ScrollToEnd();
+                var text = $"{textElapsed} (remaining: {textRemain})";
 
                 UpdateStatusTextTime(text);
                 UpdateStatusProgressBar(updates[updates.Count - 1].Item1 + 1);
