@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 
 namespace UI_PrototypeMoviesDBv0._5WPF
 {
@@ -21,9 +22,10 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                 if (state == State.running)
                 {
                     #region work
+                    view.output += i.ToString() + Environment.NewLine;
                     view.AddUpdate(i, number);
                     i++;
-                    Thread.Sleep(0);
+                    Thread.Sleep(1);
                     #endregion
                 }
                 if (state == State.stopped)

@@ -33,6 +33,9 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         {
             if (updates.Count > 0)
             {
+                UpdateTextBox();
+                ScrollToEnd();
+
                 if (updates[updates.Count - 1].Item1 > 0)
                 {
                     try
@@ -44,13 +47,6 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                         Trace.WriteLine(ex);
                     }
                 }
-
-                for (int i = 0; i < updates.Count; i++)
-                {
-                    output += updates[i].Item1.ToString() + Environment.NewLine;
-                }
-                UpdateTextBox();
-                ScrollToEnd();
 
                 UpdateStatusProgressBar(updates[updates.Count - 1].Item1 + 1);
                 UpdateStatusTextTask($"{string.Format("{0:0,0}", (updates[updates.Count - 1].Item1 + 1))} " +
