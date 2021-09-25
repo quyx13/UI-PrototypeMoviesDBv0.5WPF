@@ -23,7 +23,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
                     #region work
                     view.AddUpdate(i, number);
                     i++;
-                    Thread.Sleep(666);
+                    Thread.Sleep(0);
                     #endregion
                 }
                 if (state == State.stopped)
