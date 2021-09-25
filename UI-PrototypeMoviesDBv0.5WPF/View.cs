@@ -263,6 +263,7 @@ namespace UI_PrototypeMoviesDBv0._5WPF
         public void SetStateReady()
         {
             timer.Reset();
+            timeLeft = new TimeSpan();
             UpdateBtnStart(true);
             UpdateBtnStartImg(@"/res/play24.png");
             UpdateBtnPause(false);
