@@ -8,8 +8,8 @@ namespace UI_PrototypeMoviesDBv0._5WPF
 {
     public class View
     {
-        private Dispatcher dis;
-        private MainWindow main;
+        private readonly Dispatcher dis;
+        private readonly MainWindow main;
         private List<Tuple<int, int>> updates = new List<Tuple<int, int>>();
 
         private string textRemain = "00h:00m:00s";
